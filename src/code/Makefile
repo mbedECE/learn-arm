@@ -8,4 +8,4 @@ main.o: main.c
 	$(CC) $(CFLAGS) $^ -o $@
 
 clean:
-	rm -rf *.o *.elf
+	rm -rf *.s *.o *.elf
