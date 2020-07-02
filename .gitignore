@@ -1,5 +1,5 @@
 *.txt
 /pdf
 /stm32
-/resources/
+/resources/stm32f103c8t6
 
