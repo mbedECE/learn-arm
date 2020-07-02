@@ -9,3 +9,6 @@ main.o: main.c
 
 clean:
 	rm -rf *.s *.o *.elf
+	
+load:	
+	openocd -f ../../boards/stm32bluepill.cfg
