@@ -30,7 +30,7 @@ load:
 	# target remote :3333
 	# monitor reset halt
 	
-	# Please not Pagination is off
+	# Please note Pagination is off
 	
 	openocd -f ../../boards/bluepill.cfg &
 	arm-none-eabi-gdb $(FILE).elf

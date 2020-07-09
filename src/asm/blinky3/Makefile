@@ -3,19 +3,22 @@ LD=arm-none-eabi-ld
 SZ=arm-none-eabi-size
 OBJ=arm-none-eabi-objcopy
 SIZE=0x1000
-FILE=first
+FILE=blinky3
 ADDR=0x8000000
 DIR=/home/ubuntu/Desktop/repositories/stlink/build/Release/bin/
 CMD="program $(FILE).elf verify reset exit" 
 
 
-all: $(FILE).o $(FILE).elf
+all: blinker.o vectortable.o $(FILE).elf
 
-$(FILE).o: $(FILE).s
-	$(CC) $^ -o $@
+blinker.o: blinker.s
+	$(CC) -g $^ -o $@
+	
+vectortable.o: vectortable.s
+	$(CC) -g $^ -o $@
 
-$(FILE).elf: $(FILE).o
-	$(LD) $^ -o $@ -Ttext=0x8000000
+$(FILE).elf: blinker.o vectortable.o
+	$(LD) -o $@ blinker.o vectortable.o -T bluepill.ld
 
 clean:
 	rm -rf *.o *.elf *.bin

@@ -2,10 +2,10 @@
 .cpu cortex-m3
 .thumb
 
-.word 0x20000400
-.word 0x080000ed
-.space 0xe4
-
+.type Reset_Handler, %function
+.global Reset_Handler
+Reset_Handler:
+	
 ldr r1, =0x40021018
 ldr r0, [r1]
 orr r0, r0, #4
@@ -40,3 +40,4 @@ subs r4, #1
 bne delay2
 
 b   Blinkloop
+.end

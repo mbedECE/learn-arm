@@ -1,4 +1,5 @@
 https://www.mikrocontroller.net/articles/ARM-ASM-Tutorial
+https://sourceware.org/binutils/docs/ld/Scripts.html
 
 Note: to use gdb we need these two packages
 sudo apt-get install libncurses5 libncurses5-dev

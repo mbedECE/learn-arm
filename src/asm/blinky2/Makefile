@@ -3,7 +3,7 @@ LD=arm-none-eabi-ld
 SZ=arm-none-eabi-size
 OBJ=arm-none-eabi-objcopy
 SIZE=0x1000
-FILE=first
+FILE=blinky2
 ADDR=0x8000000
 DIR=/home/ubuntu/Desktop/repositories/stlink/build/Release/bin/
 CMD="program $(FILE).elf verify reset exit" 
@@ -15,7 +15,7 @@ $(FILE).o: $(FILE).s
 	$(CC) $^ -o $@
 
 $(FILE).elf: $(FILE).o
-	$(LD) $^ -o $@ -Ttext=0x8000000
+	$(LD) $^ -o $@ -T bluepill.ld
 
 clean:
 	rm -rf *.o *.elf *.bin
