@@ -4,23 +4,48 @@
 
 .include "bluepill.inc"
 
-TimerValue = 0x500000
+.data
+	TimerValue: .word 0xFFFF00
+	
+.bss
+	NumberOfFlashes: .space 1
+	
 
 .text
 .type Reset_Handler, %function
 .global Reset_Handler
 Reset_Handler:
+	ldr r0, =_DataStart
+	ldr r1, =_DataEnd
+	ldr r2, =_DataLoad
 
-bl EnablePortA
-bl ConfigurePortA
+	b 2f
+1:	ldr r3, [r2], #4
+	str r3, [r0], #4
+2:	cmp r0, r1
+	blo 1b
 
-ldr r0, =TimerValue
-bl StartSysTimer
+	ldr r0, =_BssStart
+	ldr r1, =_BssEnd
+	ldr r2, =0
+
+	b 2f
+1:	str r2, [r0], #4
+2:	cmp r0, r1
+	blo 1b
+
+	bl EnablePortA
+	bl ConfigurePortA
+	
+	ldr r1, =TimerValue
+
+	ldr r0, [r1]
+	bl StartSysTimer
 
 SleepLoop:
-	wfi
-	b  SleepLoop
-
+		wfi
+		b  SleepLoop
+	.ltorg
 
 .type SysTick_Handler, %function
 .global SysTick_Handler
