@@ -1,0 +1,155 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x0000000008000000 0x0000000000020000 xr
+SRAM             0x0000000020000000 0x0000000000005000 xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD main.o
+LOAD stm32_startup.o
+
+.text           0x0000000008000000      0x334
+ *(.vector_table)
+ .vector_table  0x0000000008000000       0xec stm32_startup.o
+                0x0000000008000000                vectors
+ *(.text)
+ .text          0x00000000080000ec      0x1bc main.o
+                0x00000000080000ec                main
+                0x00000000080000f6                initialize
+                0x000000000800012c                startTimer1
+                0x00000000080001c8                enableClockTIM1
+                0x00000000080001e8                enableIRQ
+                0x0000000008000228                configurePortA
+                0x000000000800026c                TIM1_UP_Handler
+ .text          0x00000000080002a8       0x8c stm32_startup.o
+                0x00000000080002a8                Reset_Handler
+                0x000000000800032c                FLASH_Handler
+                0x000000000800032c                SVCall_Handler
+                0x000000000800032c                HardFault_Handler
+                0x000000000800032c                SysTick_Handler
+                0x000000000800032c                USART3_Handler
+                0x000000000800032c                PendSV_Handler
+                0x000000000800032c                NMI_Handler
+                0x000000000800032c                DMA_Channel5_Handler
+                0x000000000800032c                CAN1_RX1_Handler
+                0x000000000800032c                DMA_Channel6_Handler
+                0x000000000800032c                EXTI15_10_Handler
+                0x000000000800032c                DMA_Channel7_Handler
+                0x000000000800032c                I2C1_EV_Handler
+                0x000000000800032c                ADC1_2_Handler
+                0x000000000800032c                WWDG_Handler
+                0x000000000800032c                EXTI4_Handler
+                0x000000000800032c                I2C1_ER_Handler
+                0x000000000800032c                RTC_Handler
+                0x000000000800032c                UsageFault_Handler
+                0x000000000800032c                CAN1_RX0_Handler
+                0x000000000800032c                TIM1_CC_Handler
+                0x000000000800032c                I2C2_ER_Handler
+                0x000000000800032c                DMA_Channel3_Handler
+                0x000000000800032c                CAN1_SCE_Handler
+                0x000000000800032c                TIM1_BRK_Handler
+                0x000000000800032c                EXTI1_Handler
+                0x000000000800032c                EXTI3_Handler
+                0x000000000800032c                EXTI2_Handler
+                0x000000000800032c                EXTI9_5_Handler
+                0x000000000800032c                TIM2_Handler
+                0x000000000800032c                USART1_Handler
+                0x000000000800032c                TIM3_Handler
+                0x000000000800032c                Default_Handler
+                0x000000000800032c                DMA_Channel1_Handler
+                0x000000000800032c                DMA_Channel2_Handler
+                0x000000000800032c                TIM4_Handler
+                0x000000000800032c                SPI2_Handler
+                0x000000000800032c                MemManage_Handler
+                0x000000000800032c                EXTI0_Handler
+                0x000000000800032c                USART2_Handler
+                0x000000000800032c                SPI1_Handler
+                0x000000000800032c                DMA_Channel4_Handler
+                0x000000000800032c                I2C2_EV_Handler
+                0x000000000800032c                Debug_Monitor_Handler
+                0x000000000800032c                RCC_Handler
+                0x000000000800032c                PVD_Handler
+                0x000000000800032c                CAN1_TX_Handler
+                0x000000000800032c                BusFault_Handler
+                0x000000000800032c                RTCAlarm_Handler
+                0x000000000800032c                TIM1_TRG_COM_Handler
+                0x000000000800032c                OTG_FS_WKUP_Handler
+                0x000000000800032c                TAMPER_Handler
+ *(.rodata)
+                0x0000000008000334                . = ALIGN (0x4)
+                0x0000000008000334                _end_of_text = .
+
+.glue_7         0x0000000008000334        0x0
+ .glue_7        0x0000000008000334        0x0 linker stubs
+
+.glue_7t        0x0000000008000334        0x0
+ .glue_7t       0x0000000008000334        0x0 linker stubs
+
+.vfp11_veneer   0x0000000008000334        0x0
+ .vfp11_veneer  0x0000000008000334        0x0 linker stubs
+
+.v4_bx          0x0000000008000334        0x0
+ .v4_bx         0x0000000008000334        0x0 linker stubs
+
+.iplt           0x0000000008000334        0x0
+ .iplt          0x0000000008000334        0x0 main.o
+
+.rel.dyn        0x0000000008000334        0x0
+ .rel.iplt      0x0000000008000334        0x0 main.o
+
+.stack          0x0000000020000000      0x400
+                0x0000000020000400                . = (. + 0x400)
+ *fill*         0x0000000020000000      0x400 
+                0x0000000008000334                _DataLoad = LOADADDR (.data)
+
+.data           0x0000000020000400       0x38 load address 0x0000000008000334
+                0x0000000020000400                _start_of_data = .
+ *(.data)
+ .data          0x0000000020000400       0x38 main.o
+                0x0000000020000400                RCC_APB2ENR
+                0x0000000020000404                GPIOA_CRH
+                0x0000000020000408                GPIOA_ORD
+                0x000000002000040c                TIM1_CR1
+                0x0000000020000410                TIM1_DIER
+                0x0000000020000414                TIM1_SR
+                0x0000000020000418                TIM1_EGR
+                0x000000002000041c                TIM1_CNT
+                0x0000000020000420                TIM1_PSC
+                0x0000000020000424                TIM1_ARR
+                0x0000000020000428                TIM1_RCR
+                0x000000002000042c                NVIC_ISER0
+                0x0000000020000430                timerPrescaler
+                0x0000000020000432                timerValue
+                0x0000000020000434                repeatCounterValue
+ .data          0x0000000020000438        0x0 stm32_startup.o
+                0x0000000020000438                . = ALIGN (0x4)
+                0x0000000020000438                _end_of_data = .
+
+.igot.plt       0x0000000020000438        0x0 load address 0x000000000800036c
+ .igot.plt      0x0000000020000438        0x0 main.o
+
+.bss            0x0000000020000438        0x0 load address 0x000000000800036c
+                0x0000000020000438                _start_of_bss = .
+ *(.bss)
+ .bss           0x0000000020000438        0x0 main.o
+ .bss           0x0000000020000438        0x0 stm32_startup.o
+ *(.COMMON)
+                0x0000000020000438                . = ALIGN (0x4)
+                0x0000000020000438                _end_of_bss = .
+OUTPUT(final.elf elf32-littlearm)
+LOAD linker stubs
+
+.comment        0x0000000000000000       0x4c
+ .comment       0x0000000000000000       0x4c main.o
+                                         0x4d (size before relaxing)
+ .comment       0x000000000000004c       0x4d stm32_startup.o
+
+.ARM.attributes
+                0x0000000000000000       0x2d
+ .ARM.attributes
+                0x0000000000000000       0x2d main.o
+ .ARM.attributes
+                0x000000000000002d       0x2d stm32_startup.o

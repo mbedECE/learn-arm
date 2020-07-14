@@ -20,7 +20,7 @@ SECTIONS {
 	
 	.data : {
 		_DataStart = .;
-		*(.data);
+		*(.data)
 		. = ALIGN(4);
 		_DataEnd = .;
 	} >SRAM AT >FLASH
@@ -29,7 +29,7 @@ SECTIONS {
 	
 	.bss : {
 		_BssStart = .;
-		*(.bss);
+		*(.bss)
 		. = ALIGN(4);
 		_BssEnd = .;
 	} >SRAM	
