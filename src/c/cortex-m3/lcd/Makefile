@@ -3,30 +3,31 @@ OBJ=arm-none-eabi-objdump
 CP=arm-none-eabi-objcopy
 SZ=arm-none-eabi-size
 NM=arm-none-eabi-nm
+LD=arm-none-eabi-ld
 MACH=cortex-m3
-CFLAGS= -c -mcpu=$(MACH) -mthumb -std=gnu11 -Wall -O0
-LDFLAGS= -nostdlib -T stm32_bluepill.ld -Xlinker -Map=final.map
+ROOT= /home/ubuntu/Desktop/repositories/learn-arm/src/c/cortex-m3/lcd/
+LIB_PATH= /opt/gcc-arm/arm-none-eabi/lib/
+CFLAGS= -c -mcpu=$(MACH) -mthumb -std=gnu11 -Wall -O0 -I../../lib/include/
+LDFLAGS= -static  -L../../lib/include -lstm32f103c8t6 -T stm32_bluepill.ld -Map=final.map -nostdlib --verbose 
+
 DIR=/home/ubuntu/Desktop/repositories/stlink/build/Release/bin/
 ADDR=0x8000000
 SIZE=0x1000
 CMD="program $(FILE).elf verify reset exit" 
 
-all:main.o stm32_startup.o bluepill.o jlx12864g.o final.elf
+all:main.o stm32_startup.o jlx12864g.o final.elf
 
 stm32_startup.o: stm32_startup.c
-	$(CC) $(CFLAGS) $^ -o $@ 
-	
-bluepill.o: bluepill.c
 	$(CC) $(CFLAGS) $^ -o $@ 
 
 jlx12864g.o: jlx12864g.c
 	$(CC) $(CFLAGS) $^ -o $@
-		
+	
 main.o: main.c
 	$(CC) $(CFLAGS) $^ -o $@
 	
-final.elf: stm32_startup.o main.o bluepill.o jlx12864g.o 
-	$(CC) $(LDFLAGS) $^ -o $@
+final.elf: stm32_startup.o main.o jlx12864g.o 
+	$(LD) $^ -o $@  $(LDFLAGS)
 	
 clean:
 	rm -rf *.o *.elf *.map *.bin

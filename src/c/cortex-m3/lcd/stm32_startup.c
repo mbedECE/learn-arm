@@ -1,18 +1,12 @@
 #include <stdint.h>
 
-#define SRAM_START	0x20000000U
-#define SRAM_SIZE	(128U * 1024U) //128KB
-#define SRAM_END	((SRAM_START) + (SRAM_SIZE))
-#define STACK_SIZE	400
-
-#define STACK_END	((SRAM_START) + (STACK_SIZE))
-
 extern uint32_t _end_of_text;
 extern uint32_t _start_of_data;
 extern uint32_t _end_of_data;
 extern uint32_t _start_of_bss;
 extern uint32_t _end_of_bss;
 extern uint32_t _DataLoad;
+extern uint32_t _STACK_END;
 
 int main(void);
 
@@ -72,7 +66,7 @@ void OTG_FS_WKUP_Handler(void)		__attribute__((weak, alias("Default_Handler")));
 
 
 uint32_t vectors[] __attribute__((section(".vector_table"))) = {
-	STACK_END,
+	(uint32_t)&_STACK_END,
 	(uint32_t)&Reset_Handler,
 	(uint32_t)&NMI_Handler,
 	(uint32_t)&HardFault_Handler,

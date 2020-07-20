@@ -19,6 +19,7 @@ SECTIONS
 	
 	.stack (NOLOAD) : {
 		. = . + 0x400;
+		_STACK_END = .;
 	} >SRAM
 	
 	_DataLoad = LOADADDR(.data);
