@@ -5,9 +5,11 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-void delays_init(void);
+uint32_t SYS_CLK;
+uint32_t clk_period;
+
+void delays_init(uint32_t);
 void wait(uint32_t);
 void delay_ms(uint32_t);
-void delay_us(uint32_t);
 
 #endif

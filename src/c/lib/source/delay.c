@@ -1,14 +1,20 @@
 #include "../include/delay.h"
 
-void delays_init(void)
-{
+uint32_t SYS_CLK = 8;
+uint32_t clk_period = 0;
+
+void delays_init(uint32_t clk)
+{	
+	SYS_CLK = clk;
+	clk_period = 1000/clk; 
+
 	disableSystickTimer();
 	setCockSource(CLK_PROCESSOR);
 	disableException();
 	enableSystickTimer();
 }
 
-//System clock period is 13ns base 72MHz
+//System clock period is 125ns base on 8MHz
 void wait(uint32_t base_period)
 {
 	setReloadValue(base_period-1);
@@ -19,12 +25,7 @@ void wait(uint32_t base_period)
 void delay_ms(uint32_t dly)
 {
 	for(uint32_t i=0; i<dly; i++)
-		wait(76923);	//wait 0.999999 ms
+		wait(1000000/clk_period);	//wait 1 ms
 }
 
-void delay_us(uint32_t dly)
-{
-	for(uint32_t i=0; i<dly; i++)
-		wait(77);	//wait 1.001 us
-}
 

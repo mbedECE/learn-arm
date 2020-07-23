@@ -84,8 +84,6 @@
 #define RCC_CFGR_HCLK_DIVx8 6
 #define RCC_CFGR_HCLK_DIVx16 7
 
-enum CLK_SRC{HSI, HSE, PLL};
-
 //RCC
 uint32_t *RCC_CR;
 uint32_t *RCC_CFGR;
@@ -107,11 +105,11 @@ void disablePLL(void);
 bool isPLLRDY(void);
 
 void setSW(uint32_t);
-uint8_t getSWS(void);
+uint32_t getSWS(void);
 void setAHB_PSC(uint32_t);
 void setAPB1_PSC(uint32_t);
 void setAPB2_PSC(uint32_t);
-void setPLLPSC(void);
+void setPLLSRC(void);
 void clearPLLSRC(void);
 void setPLLXTPRE(void);
 void clearPLLXTPRE(void);

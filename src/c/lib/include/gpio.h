@@ -1,9 +1,50 @@
-#ifndef __SPI_H
-#define __SPI_H
+#ifndef __GPIO_H
+#define __GPIO_H
 
 #include <stdint.h>
 
 //GPIO
+#define PORTA 0
+#define PORTB 1
+#define PORTC 2
+#define PORTD 3
+#define PORTE 4
+
+#define GPIO_PIN0 0
+#define GPIO_PIN1 1
+#define GPIO_PIN2 2
+#define GPIO_PIN3 3
+#define GPIO_PIN4 4
+#define GPIO_PIN5 5
+#define GPIO_PIN6 6
+#define GPIO_PIN7 7
+#define GPIO_PIN8 8
+#define GPIO_PIN9 9
+#define GPIO_PIN10 10
+#define GPIO_PIN11 11
+#define GPIO_PIN12 12
+#define GPIO_PIN13 13
+#define GPIO_PIN14 14
+#define GPIO_PIN15 15
+
+#define HIGH 1
+#define LOW 0
+
+#define MODE_INPUT 0
+#define MODE_OUTPUT_10MHz 1
+#define MODE_OUTPUT_2MHz 2
+#define MODE_OUTPUT_50MHz 3
+
+#define CNF_MODE_INPUT_ANALOG 0
+#define CNF_MODE_INPUT_FLOAT 1
+#define CNF_MODE_INPUT_PULL_UP_DN 2
+
+#define CNF_MODE_OUTPUT_GP_PP 0
+#define CNF_MODE_OUTPUT_GP_OD 1
+#define CNF_MODE_OUTPUT_AF_PP 2
+#define CNF_MODE_OUTPUT_AF_OD 3
+
+
 #define GPIO_BASE 0x40010000
 #define PORTA_BASE ((GPIO_BASE) + (0x800))
 #define PORTB_BASE ((GPIO_BASE) + (0xC00))
@@ -73,5 +114,8 @@ uint32_t *GPIOE_BSRR;
 uint32_t *GPIOE_BRR;
 uint32_t *GPIOE_LCKR;
 
+void configurePortPin(uint32_t, uint32_t, uint32_t, uint32_t);
+void pinState(uint32_t, uint32_t, uint32_t);
+void toggle(uint32_t, uint32_t);
 
 #endif

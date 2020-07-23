@@ -1,0 +1,274 @@
+Archive member included to satisfy reference by file (symbol)
+
+../../lib/include/libstm32f103c8t6.a(gpio.o)
+                              main.o (GPIOA_CRL)
+../../lib/include/libstm32f103c8t6.a(flash.o)
+                              main.o (FLASH_ACR)
+../../lib/include/libstm32f103c8t6.a(delay.o)
+                              main.o (SYS_CLK)
+../../lib/include/libstm32f103c8t6.a(systick.o)
+                              main.o (SYST_CSR)
+../../lib/include/libstm32f103c8t6.a(rcc.o)
+                              main.o (RCC_CR)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+FLASH            0x0000000008000000 0x0000000000020000 xr
+SRAM             0x0000000020000000 0x0000000000005000 xrw
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+LOAD stm32_startup.o
+LOAD main.o
+LOAD ../../lib/include/libstm32f103c8t6.a
+
+.text           0x0000000008000000      0xcdc
+ *(.vector_table)
+ .vector_table  0x0000000008000000       0xec stm32_startup.o
+                0x0000000008000000                vectors
+ *(.text)
+ .text          0x00000000080000ec       0x8c stm32_startup.o
+                0x00000000080000ec                Reset_Handler
+                0x0000000008000170                FLASH_Handler
+                0x0000000008000170                SVCall_Handler
+                0x0000000008000170                HardFault_Handler
+                0x0000000008000170                SysTick_Handler
+                0x0000000008000170                USART3_Handler
+                0x0000000008000170                PendSV_Handler
+                0x0000000008000170                NMI_Handler
+                0x0000000008000170                DMA_Channel5_Handler
+                0x0000000008000170                CAN1_RX1_Handler
+                0x0000000008000170                DMA_Channel6_Handler
+                0x0000000008000170                EXTI15_10_Handler
+                0x0000000008000170                DMA_Channel7_Handler
+                0x0000000008000170                I2C1_EV_Handler
+                0x0000000008000170                ADC1_2_Handler
+                0x0000000008000170                WWDG_Handler
+                0x0000000008000170                EXTI4_Handler
+                0x0000000008000170                I2C1_ER_Handler
+                0x0000000008000170                RTC_Handler
+                0x0000000008000170                UsageFault_Handler
+                0x0000000008000170                CAN1_RX0_Handler
+                0x0000000008000170                TIM1_CC_Handler
+                0x0000000008000170                I2C2_ER_Handler
+                0x0000000008000170                DMA_Channel3_Handler
+                0x0000000008000170                CAN1_SCE_Handler
+                0x0000000008000170                TIM1_BRK_Handler
+                0x0000000008000170                EXTI1_Handler
+                0x0000000008000170                EXTI3_Handler
+                0x0000000008000170                EXTI2_Handler
+                0x0000000008000170                EXTI9_5_Handler
+                0x0000000008000170                TIM2_Handler
+                0x0000000008000170                USART1_Handler
+                0x0000000008000170                TIM3_Handler
+                0x0000000008000170                Default_Handler
+                0x0000000008000170                DMA_Channel1_Handler
+                0x0000000008000170                DMA_Channel2_Handler
+                0x0000000008000170                TIM4_Handler
+                0x0000000008000170                SPI2_Handler
+                0x0000000008000170                MemManage_Handler
+                0x0000000008000170                EXTI0_Handler
+                0x0000000008000170                TIM1_UP_Handler
+                0x0000000008000170                USART2_Handler
+                0x0000000008000170                SPI1_Handler
+                0x0000000008000170                DMA_Channel4_Handler
+                0x0000000008000170                I2C2_EV_Handler
+                0x0000000008000170                Debug_Monitor_Handler
+                0x0000000008000170                RCC_Handler
+                0x0000000008000170                PVD_Handler
+                0x0000000008000170                CAN1_TX_Handler
+                0x0000000008000170                BusFault_Handler
+                0x0000000008000170                RTCAlarm_Handler
+                0x0000000008000170                TIM1_TRG_COM_Handler
+                0x0000000008000170                OTG_FS_WKUP_Handler
+                0x0000000008000170                TAMPER_Handler
+ .text          0x0000000008000178       0xb6 main.o
+                0x0000000008000178                main
+                0x0000000008000190                initialize
+                0x00000000080001be                configureSystemClock
+ *fill*         0x000000000800022e        0x2 
+ .text          0x0000000008000230      0x460 ../../lib/include/libstm32f103c8t6.a(gpio.o)
+                0x0000000008000230                configurePort
+                0x0000000008000448                pinState
+                0x00000000080005c4                toggle
+ .text          0x0000000008000690       0x8c ../../lib/include/libstm32f103c8t6.a(flash.o)
+                0x0000000008000690                getPRFTBS
+                0x00000000080006b4                setPRFTB
+                0x00000000080006f4                setWaitStates
+ .text          0x000000000800071c       0xb4 ../../lib/include/libstm32f103c8t6.a(delay.o)
+                0x000000000800071c                delays_init
+                0x000000000800075c                wait
+                0x0000000008000790                delay_ms
+ .text          0x00000000080007d0      0x188 ../../lib/include/libstm32f103c8t6.a(systick.o)
+                0x00000000080007d0                isCountZero
+                0x00000000080007f4                setCockSource
+                0x0000000008000834                enableSystickTimer
+                0x0000000008000854                disableSystickTimer
+                0x0000000008000874                enableException
+                0x0000000008000894                disableException
+                0x00000000080008b4                isTimerEnabled
+                0x00000000080008d8                isExcetionEnabled
+                0x00000000080008fc                setReloadValue
+                0x0000000008000920                getCurrentValue
+                0x0000000008000938                setCurrentValue
+ .text          0x0000000008000958      0x384 ../../lib/include/libstm32f103c8t6.a(rcc.o)
+                0x0000000008000958                enablePeripheralClock
+                0x00000000080009c4                isHSIRDY
+                0x00000000080009e8                enableHSE
+                0x0000000008000a08                disableHSE
+                0x0000000008000a28                enableHSI
+                0x0000000008000a48                disableHSI
+                0x0000000008000a68                isHSERDY
+                0x0000000008000a8c                enableCSS
+                0x0000000008000aac                disableCSS
+                0x0000000008000acc                enablePLL
+                0x0000000008000aec                disablePLL
+                0x0000000008000b0c                isPLLRDY
+                0x0000000008000b30                setSW
+                0x0000000008000b58                getSWS
+                0x0000000008000b7c                setAHB_PSC
+                0x0000000008000ba4                setAPB1_PSC
+                0x0000000008000bcc                setPLLSRC
+                0x0000000008000bec                clearPLLSRC
+                0x0000000008000c0c                setAPB2_PSC
+                0x0000000008000c34                setPLLXTPRE
+                0x0000000008000c54                clearPLLXTPRE
+                0x0000000008000c74                setPLLMULL
+                0x0000000008000c9c                setUSBPRE
+ *(.rodata)
+                0x0000000008000cdc                . = ALIGN (0x4)
+                0x0000000008000cdc                _end_of_text = .
+
+.glue_7         0x0000000008000cdc        0x0
+ .glue_7        0x0000000008000cdc        0x0 linker stubs
+
+.glue_7t        0x0000000008000cdc        0x0
+ .glue_7t       0x0000000008000cdc        0x0 linker stubs
+
+.vfp11_veneer   0x0000000008000cdc        0x0
+ .vfp11_veneer  0x0000000008000cdc        0x0 linker stubs
+
+.v4_bx          0x0000000008000cdc        0x0
+ .v4_bx         0x0000000008000cdc        0x0 linker stubs
+
+.iplt           0x0000000008000cdc        0x0
+ .iplt          0x0000000008000cdc        0x0 stm32_startup.o
+
+.rel.dyn        0x0000000008000cdc        0x0
+ .rel.iplt      0x0000000008000cdc        0x0 stm32_startup.o
+
+.stack          0x0000000020000000      0x400
+                0x0000000020000400                . = (. + 0x400)
+ *fill*         0x0000000020000000      0x400 
+                0x0000000020000400                _STACK_END = .
+                0x0000000008000cdc                _DataLoad = LOADADDR (.data)
+
+.data           0x0000000020000400       0xb0 load address 0x0000000008000cdc
+                0x0000000020000400                _start_of_data = .
+ *(.data)
+ .data          0x0000000020000400        0x0 stm32_startup.o
+ .data          0x0000000020000400        0x0 main.o
+ .data          0x0000000020000400       0x8c ../../lib/include/libstm32f103c8t6.a(gpio.o)
+                0x0000000020000400                GPIOA_CRL
+                0x0000000020000404                GPIOA_CRH
+                0x0000000020000408                GPIOA_IDR
+                0x000000002000040c                GPIOA_ORD
+                0x0000000020000410                GPIOA_BSRR
+                0x0000000020000414                GPIOA_BRR
+                0x0000000020000418                GPIOA_LCKR
+                0x000000002000041c                GPIOB_CRL
+                0x0000000020000420                GPIOB_CRH
+                0x0000000020000424                GPIOB_IDR
+                0x0000000020000428                GPIOB_ORD
+                0x000000002000042c                GPIOB_BSRR
+                0x0000000020000430                GPIOB_BRR
+                0x0000000020000434                GPIOB_LCKR
+                0x0000000020000438                GPIOC_CRL
+                0x000000002000043c                GPIOC_CRH
+                0x0000000020000440                GPIOC_IDR
+                0x0000000020000444                GPIOC_ORD
+                0x0000000020000448                GPIOC_BSRR
+                0x000000002000044c                GPIOC_BRR
+                0x0000000020000450                GPIOC_LCKR
+                0x0000000020000454                GPIOD_CRL
+                0x0000000020000458                GPIOD_CRH
+                0x000000002000045c                GPIOD_IDR
+                0x0000000020000460                GPIOD_ORD
+                0x0000000020000464                GPIOD_BSRR
+                0x0000000020000468                GPIOD_BRR
+                0x000000002000046c                GPIOD_LCKR
+                0x0000000020000470                GPIOE_CRL
+                0x0000000020000474                GPIOE_CRH
+                0x0000000020000478                GPIOE_IDR
+                0x000000002000047c                GPIOE_ORD
+                0x0000000020000480                GPIOE_BSRR
+                0x0000000020000484                GPIOE_BRR
+                0x0000000020000488                GPIOE_LCKR
+ .data          0x000000002000048c        0x4 ../../lib/include/libstm32f103c8t6.a(flash.o)
+                0x000000002000048c                FLASH_ACR
+ .data          0x0000000020000490        0x4 ../../lib/include/libstm32f103c8t6.a(delay.o)
+                0x0000000020000490                SYS_CLK
+ .data          0x0000000020000494        0xc ../../lib/include/libstm32f103c8t6.a(systick.o)
+                0x0000000020000494                SYST_CSR
+                0x0000000020000498                SYST_RVR
+                0x000000002000049c                SYST_CVR
+ .data          0x00000000200004a0       0x10 ../../lib/include/libstm32f103c8t6.a(rcc.o)
+                0x00000000200004a0                RCC_CR
+                0x00000000200004a4                RCC_CFGR
+                0x00000000200004a8                RCC_APB2ENR
+                0x00000000200004ac                RCC_APB1ENR
+                0x00000000200004b0                . = ALIGN (0x4)
+                0x00000000200004b0                _end_of_data = .
+
+.igot.plt       0x00000000200004b0        0x0 load address 0x0000000008000d8c
+ .igot.plt      0x00000000200004b0        0x0 stm32_startup.o
+
+.bss            0x00000000200004b0       0x10 load address 0x0000000008000d8c
+                0x00000000200004b0                _start_of_bss = .
+ *(.bss)
+ .bss           0x00000000200004b0        0x0 stm32_startup.o
+ .bss           0x00000000200004b0        0xc main.o
+                0x00000000200004b0                temp1
+                0x00000000200004b4                temp2
+                0x00000000200004b8                temp3
+ .bss           0x00000000200004bc        0x0 ../../lib/include/libstm32f103c8t6.a(gpio.o)
+ .bss           0x00000000200004bc        0x0 ../../lib/include/libstm32f103c8t6.a(flash.o)
+ .bss           0x00000000200004bc        0x4 ../../lib/include/libstm32f103c8t6.a(delay.o)
+                0x00000000200004bc                clk_period
+ .bss           0x00000000200004c0        0x0 ../../lib/include/libstm32f103c8t6.a(systick.o)
+ .bss           0x00000000200004c0        0x0 ../../lib/include/libstm32f103c8t6.a(rcc.o)
+ *(.COMMON)
+                0x00000000200004c0                . = ALIGN (0x4)
+                0x00000000200004c0                _end_of_bss = .
+ COMMON         0x00000000200004c0        0x0 main.o
+OUTPUT(final.elf elf32-littlearm)
+LOAD linker stubs
+
+.comment        0x0000000000000000       0x59
+ .comment       0x0000000000000000       0x59 stm32_startup.o
+                                         0x5a (size before relaxing)
+ .comment       0x0000000000000059       0x5a main.o
+ .comment       0x0000000000000059       0x5a ../../lib/include/libstm32f103c8t6.a(gpio.o)
+ .comment       0x0000000000000059       0x5a ../../lib/include/libstm32f103c8t6.a(flash.o)
+ .comment       0x0000000000000059       0x5a ../../lib/include/libstm32f103c8t6.a(delay.o)
+ .comment       0x0000000000000059       0x5a ../../lib/include/libstm32f103c8t6.a(systick.o)
+ .comment       0x0000000000000059       0x5a ../../lib/include/libstm32f103c8t6.a(rcc.o)
+
+.ARM.attributes
+                0x0000000000000000       0x2d
+ .ARM.attributes
+                0x0000000000000000       0x2d stm32_startup.o
+ .ARM.attributes
+                0x000000000000002d       0x2d main.o
+ .ARM.attributes
+                0x000000000000005a       0x2d ../../lib/include/libstm32f103c8t6.a(gpio.o)
+ .ARM.attributes
+                0x0000000000000087       0x2d ../../lib/include/libstm32f103c8t6.a(flash.o)
+ .ARM.attributes
+                0x00000000000000b4       0x2d ../../lib/include/libstm32f103c8t6.a(delay.o)
+ .ARM.attributes
+                0x00000000000000e1       0x2d ../../lib/include/libstm32f103c8t6.a(systick.o)
+ .ARM.attributes
+                0x000000000000010e       0x2d ../../lib/include/libstm32f103c8t6.a(rcc.o)

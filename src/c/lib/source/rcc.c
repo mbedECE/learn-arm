@@ -92,9 +92,9 @@ void setSW(uint32_t sw)
 	*RCC_CFGR |= (sw << RCC_CFGR_SW);
 }
 
-uint8_t getSWS(void)
+uint32_t getSWS(void)
 {
-	uint8_t source = (uint8_t)(*RCC_CFGR & 0xC);
+	uint32_t source = (*RCC_CFGR & 0xC);
 	return (source >> 2);
 }
 
@@ -108,7 +108,7 @@ void setAPB1_PSC(uint32_t psc)
 	*RCC_CFGR |= (psc << RCC_CFGR_PPRE1);
 }
 
-void setPLLPSC(void)
+void setPLLSRC(void)
 {
 	*RCC_CFGR |= (1 << RCC_CFGR_PLLSRC);
 }
