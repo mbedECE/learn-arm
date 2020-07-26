@@ -11,7 +11,7 @@ OBJ= $(wildcard ../obj/*.o)
 OBJ_PATH=../obj/
 INC_PATH= ../include/
 
-all:flash.o nvic.o gpio.o rcc.o spi.o systick.o delay.o libstm32f103c8t6.a
+all:flash.o nvic.o gpio.o rcc.o spi.o systick.o delay.o timers.o libstm32f103c8t6.a
 
 flash.o: flash.c
 	$(CC) $(CFLAGS) $^ -o $(OBJ_PATH)$@ 
@@ -33,6 +33,9 @@ systick.o: systick.c
 	
 delay.o: delay.c
 	$(CC) $(CFLAGS) $^ -o $(OBJ_PATH)$@ 
+	
+timers.o: timers.c
+	$(CC) $(CFLAGS) $^ -o $(OBJ_PATH)$@ 
 
 libstm32f103c8t6.a: $(OBJECTS)
 	$(AR) $(ARFLAGS) $(INC_PATH)$@ $(OBJ)  	
@@ -40,5 +43,3 @@ libstm32f103c8t6.a: $(OBJECTS)
 clean:
 	rm -rf $(OBJ_PATH)*.o 
 	rm -rf $(INC_PATH)*.a 
-	
-#flash.o nvic.o gpio.o rcc.o spi.o systick.o delay.o	

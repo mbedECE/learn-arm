@@ -1,35 +1,20 @@
-#include <stdint.h>
-
-#include "jlx12864g-086.h"
-
-#include "flash.h"
-#include "rcc.h"
-
 #include "main.h"
-
-
 
 int main(void)
 {
 	initialize();
-		
-	while(1);
-	//200004e8
+	
+	while(1)
+	{
+
+	}
 }
 
-void initialize(void)
+void initialize()
 {
 	configureSystemClock();
-	lcdInit();
-	
-	//enablePeripheralClock(RCC_APB2ENR_IOPAEN);
-	//configurePortPin(PORTA, GPIO_PIN9, CNF_MODE_OUTPUT_GP_PP, MODE_OUTPUT_2MHz);	
-	//pinState(PORTA, GPIO_PIN9, HIGH);
-	
-	//temp1 = *RCC_APB2ENR;
-	//temp2 = *GPIOA_CRH;
-	//temp3 = *GPIOA_BSRR;
-	
+	delays_init(SYS_CLK);
+	HCSR04();
 }
 
 void configureSystemClock(void)
@@ -67,4 +52,22 @@ void configureSystemClock(void)
 	//Turn off HSI to save power
 	disableHSI();
 }	
+
+void HCSR04(void)
+{	
+	enablePeripheralClock(RCC_APB2ENR_IOPAEN);
+	enablePeripheralClock(RCC_APB2ENR_IOPBEN);
+	
+	configurePortPin(PORTB, GPIO_PIN1, CNF_MODE_OUTPUT_GP_PP, MODE_OUTPUT_2MHz);	//TRIG
+	configurePortPin(PORTA, GPIO_PIN8, CNF_MODE_INPUT_FLOAT, MODE_INPUT);		//ECHO
+	
+	pinState(PORTB, GPIO_PIN1, LOW);
+}
+
+void trigger(void)
+{
+	pinState(PORTB, GPIO_PIN1, HIGH); 
+	delay_ms(1);
+	pinState(PORTB, GPIO_PIN1, LOW);	
+}
 

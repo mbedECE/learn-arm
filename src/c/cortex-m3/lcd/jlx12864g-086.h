@@ -11,7 +11,8 @@
 #define DISPLY_STATE_ON 0xAF
 #define DISPLY_STATE_OFF 0xAE
 
-void lcdInit(void);
+void print(uint8_t, uint8_t, uint8_t);
+void lcdInit(uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t, uint32_t);
 
 void sendCMD(uint16_t);
 void sendData(uint16_t);

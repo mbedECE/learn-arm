@@ -24,10 +24,9 @@ Linker script and memory map
 
 LOAD stm32_startup.o
 LOAD main.o
-LOAD jlx12864g-086.o
 LOAD ../../lib/include/libstm32f103c8t6.a
 
-.text           0x0000000008000000     0x2384
+.text           0x0000000008000000     0x210c
  *(.vector_table)
  .vector_table  0x0000000008000000       0xec stm32_startup.o
                 0x0000000008000000                vectors
@@ -87,158 +86,150 @@ LOAD ../../lib/include/libstm32f103c8t6.a
                 0x0000000008000170                TIM1_TRG_COM_Handler
                 0x0000000008000170                OTG_FS_WKUP_Handler
                 0x0000000008000170                TAMPER_Handler
- .text          0x0000000008000178       0x8a main.o
+ .text          0x0000000008000178       0xe8 main.o
                 0x0000000008000178                main
                 0x0000000008000182                initialize
-                0x0000000008000192                configureSystemClock
- .text          0x0000000008000202      0x2d4 jlx12864g-086.o
-                0x0000000008000202                lcdInit
-                0x000000000800039a                clearScreen
-                0x00000000080003e2                sendCMD
-                0x0000000008000428                sendData
-                0x000000000800046e                setDisplayState
-                0x0000000008000488                softReset
-                0x0000000008000496                setCursor
- *fill*         0x00000000080004d6        0x2 
- .text          0x00000000080004d8     0x139c ../../lib/include/libstm32f103c8t6.a(spi.o)
-                0x00000000080004d8                enableSpiClk
-                0x00000000080004e6                enableSPI
-                0x0000000008000528                disableSPI
-                0x00000000080005b4                spiTransfer
-                0x0000000008000630                setBIDIMODE
-                0x00000000080006a8                setBIDIOE
-                0x0000000008000720                setCRCEN
-                0x0000000008000798                setCRCNEXT
-                0x0000000008000810                setDFF
-                0x0000000008000888                setRXONLY
-                0x0000000008000900                setSSM
-                0x0000000008000978                setSSI
-                0x00000000080009f0                setLSBFIRST
-                0x0000000008000a68                setBR
-                0x0000000008000ab0                setMSTR
-                0x0000000008000b28                setCPOL
-                0x0000000008000ba0                setCPHA
-                0x0000000008000c18                getBIBIMODE
-                0x0000000008000c64                getBIBIOE
-                0x0000000008000cb0                getCRCEN
-                0x0000000008000cfc                getDFF
-                0x0000000008000d48                getCRCNEXT
-                0x0000000008000d94                getRXONLY
-                0x0000000008000de0                getSSM
-                0x0000000008000e2c                getSSI
-                0x0000000008000e78                getLSBFIRST
-                0x0000000008000ec4                getSPE
-                0x0000000008000f10                getBR
-                0x0000000008000f5c                getMSTR
-                0x0000000008000fa8                getCPOL
-                0x0000000008000ff4                getCPHA
-                0x0000000008001040                setTXEIE
-                0x00000000080010bc                setRXNEIE
-                0x0000000008001138                setERRIE
-                0x00000000080011b4                setSSOE
-                0x0000000008001230                setTXDMAEN
-                0x00000000080012ac                setRXDMAEN
-                0x0000000008001328                getTXEIE
-                0x0000000008001374                getRXNEIE
-                0x00000000080013c0                getERRIE
-                0x000000000800140c                getSSOE
-                0x0000000008001458                getTXDMAEN
-                0x00000000080014a4                getRXDMAEN
-                0x00000000080014f0                clearCRCERR
-                0x0000000008001534                getBSY
-                0x0000000008001580                getOVR
-                0x00000000080015cc                getMODF
-                0x0000000008001618                getCRCERR
-                0x0000000008001664                getUDR
-                0x00000000080016b0                getCHSIDE
-                0x00000000080016fc                getTXE
-                0x0000000008001748                getRXNE
-                0x0000000008001794                readSPICRCPR
-                0x00000000080017cc                writeSPICRCPR
-                0x0000000008001804                readSPIRXCRCR
-                0x000000000800183c                readSPITXCRCR
- .text          0x0000000008001874      0x4c4 ../../lib/include/libstm32f103c8t6.a(gpio.o)
-                0x0000000008001874                configurePortPin
-                0x0000000008001af0                pinState
-                0x0000000008001c6c                toggle
- .text          0x0000000008001d38       0x8c ../../lib/include/libstm32f103c8t6.a(flash.o)
-                0x0000000008001d38                getPRFTBS
-                0x0000000008001d5c                setPRFTB
-                0x0000000008001d9c                setWaitStates
- .text          0x0000000008001dc4       0xb4 ../../lib/include/libstm32f103c8t6.a(delay.o)
-                0x0000000008001dc4                delays_init
-                0x0000000008001e04                wait
-                0x0000000008001e38                delay_ms
- .text          0x0000000008001e78      0x188 ../../lib/include/libstm32f103c8t6.a(systick.o)
-                0x0000000008001e78                isCountZero
-                0x0000000008001e9c                setCockSource
-                0x0000000008001edc                enableSystickTimer
-                0x0000000008001efc                disableSystickTimer
-                0x0000000008001f1c                enableException
-                0x0000000008001f3c                disableException
-                0x0000000008001f5c                isTimerEnabled
-                0x0000000008001f80                isExcetionEnabled
-                0x0000000008001fa4                setReloadValue
-                0x0000000008001fc8                getCurrentValue
-                0x0000000008001fe0                setCurrentValue
- .text          0x0000000008002000      0x384 ../../lib/include/libstm32f103c8t6.a(rcc.o)
-                0x0000000008002000                enablePeripheralClock
-                0x000000000800206c                isHSIRDY
-                0x0000000008002090                enableHSE
-                0x00000000080020b0                disableHSE
-                0x00000000080020d0                enableHSI
-                0x00000000080020f0                disableHSI
-                0x0000000008002110                isHSERDY
-                0x0000000008002134                enableCSS
-                0x0000000008002154                disableCSS
-                0x0000000008002174                enablePLL
-                0x0000000008002194                disablePLL
-                0x00000000080021b4                isPLLRDY
-                0x00000000080021d8                setSW
-                0x0000000008002200                getSWS
-                0x0000000008002224                setAHB_PSC
-                0x000000000800224c                setAPB1_PSC
-                0x0000000008002274                setPLLSRC
-                0x0000000008002294                clearPLLSRC
-                0x00000000080022b4                setAPB2_PSC
-                0x00000000080022dc                setPLLXTPRE
-                0x00000000080022fc                clearPLLXTPRE
-                0x000000000800231c                setPLLMULL
-                0x0000000008002344                setUSBPRE
+                0x0000000008000198                configureSystemClock
+                0x0000000008000208                HCSR04
+                0x000000000800023e                trigger
+ .text          0x0000000008000260     0x139c ../../lib/include/libstm32f103c8t6.a(spi.o)
+                0x0000000008000260                enableSpiClk
+                0x000000000800026e                enableSPI
+                0x00000000080002b0                disableSPI
+                0x000000000800033c                spiTransfer
+                0x00000000080003b8                setBIDIMODE
+                0x0000000008000430                setBIDIOE
+                0x00000000080004a8                setCRCEN
+                0x0000000008000520                setCRCNEXT
+                0x0000000008000598                setDFF
+                0x0000000008000610                setRXONLY
+                0x0000000008000688                setSSM
+                0x0000000008000700                setSSI
+                0x0000000008000778                setLSBFIRST
+                0x00000000080007f0                setBR
+                0x0000000008000838                setMSTR
+                0x00000000080008b0                setCPOL
+                0x0000000008000928                setCPHA
+                0x00000000080009a0                getBIBIMODE
+                0x00000000080009ec                getBIBIOE
+                0x0000000008000a38                getCRCEN
+                0x0000000008000a84                getDFF
+                0x0000000008000ad0                getCRCNEXT
+                0x0000000008000b1c                getRXONLY
+                0x0000000008000b68                getSSM
+                0x0000000008000bb4                getSSI
+                0x0000000008000c00                getLSBFIRST
+                0x0000000008000c4c                getSPE
+                0x0000000008000c98                getBR
+                0x0000000008000ce4                getMSTR
+                0x0000000008000d30                getCPOL
+                0x0000000008000d7c                getCPHA
+                0x0000000008000dc8                setTXEIE
+                0x0000000008000e44                setRXNEIE
+                0x0000000008000ec0                setERRIE
+                0x0000000008000f3c                setSSOE
+                0x0000000008000fb8                setTXDMAEN
+                0x0000000008001034                setRXDMAEN
+                0x00000000080010b0                getTXEIE
+                0x00000000080010fc                getRXNEIE
+                0x0000000008001148                getERRIE
+                0x0000000008001194                getSSOE
+                0x00000000080011e0                getTXDMAEN
+                0x000000000800122c                getRXDMAEN
+                0x0000000008001278                clearCRCERR
+                0x00000000080012bc                getBSY
+                0x0000000008001308                getOVR
+                0x0000000008001354                getMODF
+                0x00000000080013a0                getCRCERR
+                0x00000000080013ec                getUDR
+                0x0000000008001438                getCHSIDE
+                0x0000000008001484                getTXE
+                0x00000000080014d0                getRXNE
+                0x000000000800151c                readSPICRCPR
+                0x0000000008001554                writeSPICRCPR
+                0x000000000800158c                readSPIRXCRCR
+                0x00000000080015c4                readSPITXCRCR
+ .text          0x00000000080015fc      0x4c4 ../../lib/include/libstm32f103c8t6.a(gpio.o)
+                0x00000000080015fc                configurePortPin
+                0x0000000008001878                pinState
+                0x00000000080019f4                toggle
+ .text          0x0000000008001ac0       0x8c ../../lib/include/libstm32f103c8t6.a(flash.o)
+                0x0000000008001ac0                getPRFTBS
+                0x0000000008001ae4                setPRFTB
+                0x0000000008001b24                setWaitStates
+ .text          0x0000000008001b4c       0xb4 ../../lib/include/libstm32f103c8t6.a(delay.o)
+                0x0000000008001b4c                delays_init
+                0x0000000008001b8c                wait
+                0x0000000008001bc0                delay_ms
+ .text          0x0000000008001c00      0x188 ../../lib/include/libstm32f103c8t6.a(systick.o)
+                0x0000000008001c00                isCountZero
+                0x0000000008001c24                setCockSource
+                0x0000000008001c64                enableSystickTimer
+                0x0000000008001c84                disableSystickTimer
+                0x0000000008001ca4                enableException
+                0x0000000008001cc4                disableException
+                0x0000000008001ce4                isTimerEnabled
+                0x0000000008001d08                isExcetionEnabled
+                0x0000000008001d2c                setReloadValue
+                0x0000000008001d50                getCurrentValue
+                0x0000000008001d68                setCurrentValue
+ .text          0x0000000008001d88      0x384 ../../lib/include/libstm32f103c8t6.a(rcc.o)
+                0x0000000008001d88                enablePeripheralClock
+                0x0000000008001df4                isHSIRDY
+                0x0000000008001e18                enableHSE
+                0x0000000008001e38                disableHSE
+                0x0000000008001e58                enableHSI
+                0x0000000008001e78                disableHSI
+                0x0000000008001e98                isHSERDY
+                0x0000000008001ebc                enableCSS
+                0x0000000008001edc                disableCSS
+                0x0000000008001efc                enablePLL
+                0x0000000008001f1c                disablePLL
+                0x0000000008001f3c                isPLLRDY
+                0x0000000008001f60                setSW
+                0x0000000008001f88                getSWS
+                0x0000000008001fac                setAHB_PSC
+                0x0000000008001fd4                setAPB1_PSC
+                0x0000000008001ffc                setPLLSRC
+                0x000000000800201c                clearPLLSRC
+                0x000000000800203c                setAPB2_PSC
+                0x0000000008002064                setPLLXTPRE
+                0x0000000008002084                clearPLLXTPRE
+                0x00000000080020a4                setPLLMULL
+                0x00000000080020cc                setUSBPRE
  *(.rodata)
-                0x0000000008002384                . = ALIGN (0x4)
-                0x0000000008002384                _end_of_text = .
+                0x000000000800210c                . = ALIGN (0x4)
+                0x000000000800210c                _end_of_text = .
 
-.glue_7         0x0000000008002384        0x0
- .glue_7        0x0000000008002384        0x0 linker stubs
+.glue_7         0x000000000800210c        0x0
+ .glue_7        0x000000000800210c        0x0 linker stubs
 
-.glue_7t        0x0000000008002384        0x0
- .glue_7t       0x0000000008002384        0x0 linker stubs
+.glue_7t        0x000000000800210c        0x0
+ .glue_7t       0x000000000800210c        0x0 linker stubs
 
-.vfp11_veneer   0x0000000008002384        0x0
- .vfp11_veneer  0x0000000008002384        0x0 linker stubs
+.vfp11_veneer   0x000000000800210c        0x0
+ .vfp11_veneer  0x000000000800210c        0x0 linker stubs
 
-.v4_bx          0x0000000008002384        0x0
- .v4_bx         0x0000000008002384        0x0 linker stubs
+.v4_bx          0x000000000800210c        0x0
+ .v4_bx         0x000000000800210c        0x0 linker stubs
 
-.iplt           0x0000000008002384        0x0
- .iplt          0x0000000008002384        0x0 stm32_startup.o
+.iplt           0x000000000800210c        0x0
+ .iplt          0x000000000800210c        0x0 stm32_startup.o
 
-.rel.dyn        0x0000000008002384        0x0
- .rel.iplt      0x0000000008002384        0x0 stm32_startup.o
+.rel.dyn        0x000000000800210c        0x0
+ .rel.iplt      0x000000000800210c        0x0 stm32_startup.o
 
 .stack          0x0000000020000000      0x400
                 0x0000000020000400                . = (. + 0x400)
  *fill*         0x0000000020000000      0x400 
                 0x0000000020000400                _STACK_END = .
-                0x0000000008002384                _DataLoad = LOADADDR (.data)
+                0x000000000800210c                _DataLoad = LOADADDR (.data)
 
-.data           0x0000000020000400       0xe8 load address 0x0000000008002384
+.data           0x0000000020000400       0xe8 load address 0x000000000800210c
                 0x0000000020000400                _start_of_data = .
  *(.data)
  .data          0x0000000020000400        0x0 stm32_startup.o
  .data          0x0000000020000400        0x0 main.o
- .data          0x0000000020000400        0x0 jlx12864g-086.o
  .data          0x0000000020000400       0x38 ../../lib/include/libstm32f103c8t6.a(spi.o)
                 0x0000000020000400                SPI1_CR1
                 0x0000000020000404                SPI1_CR2
@@ -306,15 +297,14 @@ LOAD ../../lib/include/libstm32f103c8t6.a
                 0x00000000200004e8                . = ALIGN (0x4)
                 0x00000000200004e8                _end_of_data = .
 
-.igot.plt       0x00000000200004e8        0x0 load address 0x000000000800246c
+.igot.plt       0x00000000200004e8        0x0 load address 0x00000000080021f4
  .igot.plt      0x00000000200004e8        0x0 stm32_startup.o
 
-.bss            0x00000000200004e8        0x4 load address 0x000000000800246c
+.bss            0x00000000200004e8        0x4 load address 0x00000000080021f4
                 0x00000000200004e8                _start_of_bss = .
  *(.bss)
  .bss           0x00000000200004e8        0x0 stm32_startup.o
  .bss           0x00000000200004e8        0x0 main.o
- .bss           0x00000000200004e8        0x0 jlx12864g-086.o
  .bss           0x00000000200004e8        0x0 ../../lib/include/libstm32f103c8t6.a(spi.o)
  .bss           0x00000000200004e8        0x0 ../../lib/include/libstm32f103c8t6.a(gpio.o)
  .bss           0x00000000200004e8        0x0 ../../lib/include/libstm32f103c8t6.a(flash.o)
@@ -333,7 +323,6 @@ LOAD linker stubs
  .comment       0x0000000000000000       0x59 stm32_startup.o
                                          0x5a (size before relaxing)
  .comment       0x0000000000000059       0x5a main.o
- .comment       0x0000000000000059       0x5a jlx12864g-086.o
  .comment       0x0000000000000059       0x5a ../../lib/include/libstm32f103c8t6.a(spi.o)
  .comment       0x0000000000000059       0x5a ../../lib/include/libstm32f103c8t6.a(gpio.o)
  .comment       0x0000000000000059       0x5a ../../lib/include/libstm32f103c8t6.a(flash.o)
@@ -348,16 +337,14 @@ LOAD linker stubs
  .ARM.attributes
                 0x000000000000002d       0x2d main.o
  .ARM.attributes
-                0x000000000000005a       0x2d jlx12864g-086.o
+                0x000000000000005a       0x2d ../../lib/include/libstm32f103c8t6.a(spi.o)
  .ARM.attributes
-                0x0000000000000087       0x2d ../../lib/include/libstm32f103c8t6.a(spi.o)
+                0x0000000000000087       0x2d ../../lib/include/libstm32f103c8t6.a(gpio.o)
  .ARM.attributes
-                0x00000000000000b4       0x2d ../../lib/include/libstm32f103c8t6.a(gpio.o)
+                0x00000000000000b4       0x2d ../../lib/include/libstm32f103c8t6.a(flash.o)
  .ARM.attributes
-                0x00000000000000e1       0x2d ../../lib/include/libstm32f103c8t6.a(flash.o)
+                0x00000000000000e1       0x2d ../../lib/include/libstm32f103c8t6.a(delay.o)
  .ARM.attributes
-                0x000000000000010e       0x2d ../../lib/include/libstm32f103c8t6.a(delay.o)
+                0x000000000000010e       0x2d ../../lib/include/libstm32f103c8t6.a(systick.o)
  .ARM.attributes
-                0x000000000000013b       0x2d ../../lib/include/libstm32f103c8t6.a(systick.o)
- .ARM.attributes
-                0x0000000000000168       0x2d ../../lib/include/libstm32f103c8t6.a(rcc.o)
+                0x000000000000013b       0x2d ../../lib/include/libstm32f103c8t6.a(rcc.o)
