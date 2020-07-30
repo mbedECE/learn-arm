@@ -1419,7 +1419,7 @@ uint32_t getSMS(uint32_t module)
 	}
 }
 
-/*
+
 void setTDE(uint32_t, bool);
 void setCOMDE(uint32_t, bool);
 void setCC4DE(uint32_t, bool);
@@ -1497,69 +1497,696 @@ bool getCC1G(uint32_t);
 bool getUG(uint32_t);
 
 void setOC2CE(uint32_t, bool);
-void setOC2M(uint32_t, uint32_t);
+
+
+void setOC2M(uint32_t module, uint32_t value)
+{
+	switch(module)
+	{
+		case TIM1:
+			*TIM1_CCMR1 |= (value << TIMx_CCMR1_OC2M);
+			break;
+		case TIM2:
+			*TIM2_CCMR1 |= (value << TIMx_CCMR1_OC2M);
+		 	break;
+		case TIM3:
+			*TIM3_CCMR1 |= (value << TIMx_CCMR1_OC2M);
+		 	break;
+		case TIM4:
+			*TIM4_CCMR1 |= (value << TIMx_CCMR1_OC2M);
+			break; 			
+	}
+}
+
 void setOC2PE(uint32_t, bool);
 void setOC2FE(uint32_t, bool);
-void setCC2S(uint32_t, uint32_t);
+
+
+void setCC2S(uint32_t module, uint32_t value)
+{
+	switch(module)
+	{
+		case TIM1:
+			*TIM1_CCMR1 |= (value << TIMx_CCMR1_CC2S);
+			break;
+		case TIM2:
+			*TIM2_CCMR1 |= (value << TIMx_CCMR1_CC2S);
+		 	break;
+		case TIM3:
+			*TIM3_CCMR1 |= (value << TIMx_CCMR1_CC2S);
+		 	break;
+		case TIM4:
+			*TIM4_CCMR1 |= (value << TIMx_CCMR1_CC2S);
+			break; 			
+	}
+}
+
 void setOC1CE(uint32_t, bool);
-void setOC1M(uint32_t, uint32_t);
+
+
+void setOC1M(uint32_t module, uint32_t value)
+{
+	switch(module)
+	{
+		case TIM1:
+			*TIM1_CCMR1 |= (value << TIMx_CCMR1_OC1M);
+			break;
+		case TIM2:
+			*TIM2_CCMR1 |= (value << TIMx_CCMR1_OC1M);
+		 	break;
+		case TIM3:
+			*TIM3_CCMR1 |= (value << TIMx_CCMR1_OC1M);
+		 	break;
+		case TIM4:
+			*TIM4_CCMR1 |= (value << TIMx_CCMR1_OC1M);
+			break; 			
+	}
+}
+
 void setOC1PE(uint32_t, bool);
 void setOC1FE(uint32_t, bool);
-void setCC1S(uint32_t, uint32_t);
+
+
+void setCC1S(uint32_t module, uint32_t value)
+{
+	switch(module)
+	{
+		case TIM1:
+			*TIM1_CCMR1 |= (value << TIMx_CCMR1_CC1S);
+			break;
+		case TIM2:
+			*TIM2_CCMR1 |= (value << TIMx_CCMR1_CC1S);
+		 	break;
+		case TIM3:
+			*TIM3_CCMR1 |= (value << TIMx_CCMR1_CC1S);
+		 	break;
+		case TIM4:
+			*TIM4_CCMR1 |= (value << TIMx_CCMR1_CC1S);
+			break; 			
+	}
+}
+
+
 
 bool getOC2CE(uint32_t);
-uint32_t getOC2M(uint32_t);
+
+uint32_t getOC2M(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return ((*TIM1_CCMR1 & (7 << TIMx_CCMR1_OC2M)) >> TIMx_CCMR1_OC2M);
+			break;
+		case TIM2:
+			return ((*TIM2_CCMR1 & (7 << TIMx_CCMR1_OC2M)) >> TIMx_CCMR1_OC2M);
+		 	break;
+		case TIM3:
+			return ((*TIM3_CCMR1 & (7 << TIMx_CCMR1_OC2M)) >> TIMx_CCMR1_OC2M);
+		 	break;
+		case TIM4:
+			return ((*TIM4_CCMR1 & (7 << TIMx_CCMR1_OC2M)) >> TIMx_CCMR1_OC2M);
+			break; 
+		default:
+			return 0;			
+	}
+}
+
 bool getOC2PE(uint32_t);
 bool getOC2FE(uint32_t);
-uint32_t getCC2S(uint32_t);
+
+uint32_t getCC2S(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return ((*TIM1_CCMR1 & (3 << TIMx_CCMR1_CC2S)) >> TIMx_CCMR1_CC2S);
+			break;
+		case TIM2:
+			return ((*TIM2_CCMR1 & (3 << TIMx_CCMR1_CC2S)) >> TIMx_CCMR1_CC2S);
+		 	break;
+		case TIM3:
+			return ((*TIM3_CCMR1 & (3 << TIMx_CCMR1_CC2S)) >> TIMx_CCMR1_CC2S);
+		 	break;
+		case TIM4:
+			return ((*TIM4_CCMR1 & (3 << TIMx_CCMR1_CC2S)) >> TIMx_CCMR1_CC2S);
+			break; 
+		default:
+			return 0;			
+	}
+}
+
 bool getOC1CE(uint32_t);
-uint32_t getOC1M(uint32_t);
+
+uint32_t getOC1M(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return ((*TIM1_CCMR1 & (7 << TIMx_CCMR1_OC1M)) >> TIMx_CCMR1_OC1M);
+			break;
+		case TIM2:
+			return ((*TIM2_CCMR1 & (7 << TIMx_CCMR1_OC1M)) >> TIMx_CCMR1_OC1M);
+		 	break;
+		case TIM3:
+			return ((*TIM3_CCMR1 & (7 << TIMx_CCMR1_OC1M)) >> TIMx_CCMR1_OC1M);
+		 	break;
+		case TIM4:
+			return ((*TIM4_CCMR1 & (7 << TIMx_CCMR1_OC1M)) >> TIMx_CCMR1_OC1M);
+			break; 
+		default:
+			return 0;			
+	}
+}
+
 bool getOC1PE(uint32_t);
 bool getOC1FE(uint32_t);
-uint32_t getCCS1(uint32_t);
 
-void setIC2F(uint32_t, uint32_t);
-void setIC2PSC(uint32_t, uint32_t);
-void setIC1F(uint32_t, uint32_t);
-void setIC1PSC(uint32_t, uint32_t);
+uint32_t getCCS1(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return ((*TIM1_CCMR1 & (3 << TIMx_CCMR1_CC1S)) >> TIMx_CCMR1_CC1S);
+			break;
+		case TIM2:
+			return ((*TIM2_CCMR1 & (3 << TIMx_CCMR1_CC1S)) >> TIMx_CCMR1_CC1S);
+		 	break;
+		case TIM3:
+			return ((*TIM3_CCMR1 & (3 << TIMx_CCMR1_CC1S)) >> TIMx_CCMR1_CC1S);
+		 	break;
+		case TIM4:
+			return ((*TIM4_CCMR1 & (3 << TIMx_CCMR1_CC1S)) >> TIMx_CCMR1_CC1S);
+			break; 
+		default:
+			return 0;			
+	}
+}
 
-uint32_t getIC2F(uint32_t);
-uint32_t getIC2PSC(uint32_t);
-uint32_t getIC1F(uint32_t);
-uint32_t getIC1OSC(uint32_t);
+void setIC2F(uint32_t module, uint32_t value)
+{
+	switch(module)
+	{
+		case TIM1:
+			*TIM1_CCMR1 |= (value << TIMx_CCMR1_IC2F);
+			break;
+		case TIM2:
+			*TIM2_CCMR1 |= (value << TIMx_CCMR1_IC2F);
+		 	break;
+		case TIM3:
+			*TIM3_CCMR1 |= (value << TIMx_CCMR1_IC2F);
+		 	break;
+		case TIM4:
+			*TIM4_CCMR1 |= (value << TIMx_CCMR1_IC2F);
+			break; 			
+	}
+}
 
+void setIC2PSC(uint32_t module, uint32_t value)
+{
+	switch(module)
+	{
+		case TIM1:
+			*TIM1_CCMR1 |= (value << TIMx_CCMR1_IC2PSC);
+			break;
+		case TIM2:
+			*TIM2_CCMR1 |= (value << TIMx_CCMR1_IC2PSC);
+		 	break;
+		case TIM3:
+			*TIM3_CCMR1 |= (value << TIMx_CCMR1_IC2PSC);
+		 	break;
+		case TIM4:
+			*TIM4_CCMR1 |= (value << TIMx_CCMR1_IC2PSC);
+			break; 			
+	}
+}
+
+void setIC1F(uint32_t module, uint32_t value)
+{
+	switch(module)
+	{
+		case TIM1:
+			*TIM1_CCMR1 |= (value << TIMx_CCMR1_IC1F);
+			break;
+		case TIM2:
+			*TIM2_CCMR1 |= (value << TIMx_CCMR1_IC1F);
+		 	break;
+		case TIM3:
+			*TIM3_CCMR1 |= (value << TIMx_CCMR1_IC1F);
+		 	break;
+		case TIM4:
+			*TIM4_CCMR1 |= (value << TIMx_CCMR1_IC1F);
+			break; 			
+	}
+}
+
+void setIC1PSC(uint32_t module, uint32_t value)
+{
+	switch(module)
+	{
+		case TIM1:
+			*TIM1_CCMR1 |= (value << TIMx_CCMR1_IC1PSC);
+			break;
+		case TIM2:
+			*TIM2_CCMR1 |= (value << TIMx_CCMR1_IC1PSC);
+		 	break;
+		case TIM3:
+			*TIM3_CCMR1 |= (value << TIMx_CCMR1_IC1PSC);
+		 	break;
+		case TIM4:
+			*TIM4_CCMR1 |= (value << TIMx_CCMR1_IC1PSC);
+			break; 			
+	}
+}
+
+uint32_t getIC2F(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return ((*TIM1_CCMR1 & (15 << TIMx_CCMR1_IC2F)) >> TIMx_CCMR1_IC2F);
+			break;
+		case TIM2:
+			return ((*TIM2_CCMR1 & (15 << TIMx_CCMR1_IC2F)) >> TIMx_CCMR1_IC2F);
+		 	break;
+		case TIM3:
+			return ((*TIM3_CCMR1 & (15 << TIMx_CCMR1_IC2F)) >> TIMx_CCMR1_IC2F);
+		 	break;
+		case TIM4:
+			return ((*TIM4_CCMR1 & (15 << TIMx_CCMR1_IC2F)) >> TIMx_CCMR1_IC2F);
+			break; 
+		default:
+			return 0;			
+	}
+}
+
+uint32_t getIC2PSC(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return ((*TIM1_CCMR1 & (3 << TIMx_CCMR1_IC2PSC)) >> TIMx_CCMR1_IC2PSC);
+			break;
+		case TIM2:
+			return ((*TIM2_CCMR1 & (3 << TIMx_CCMR1_IC2PSC)) >> TIMx_CCMR1_IC2PSC);
+		 	break;
+		case TIM3:
+			return ((*TIM3_CCMR1 & (3 << TIMx_CCMR1_IC2PSC)) >> TIMx_CCMR1_IC2PSC);
+		 	break;
+		case TIM4:
+			return ((*TIM4_CCMR1 & (3 << TIMx_CCMR1_IC2PSC)) >> TIMx_CCMR1_IC2PSC);
+			break; 
+		default:
+			return 0;			
+	}
+}
+
+uint32_t getIC1F(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return ((*TIM1_CCMR1 & (15 << TIMx_CCMR1_IC1F)) >> TIMx_CCMR1_IC1F);
+			break;
+		case TIM2:
+			return ((*TIM2_CCMR1 & (15 << TIMx_CCMR1_IC1F)) >> TIMx_CCMR1_IC1F);
+		 	break;
+		case TIM3:
+			return ((*TIM3_CCMR1 & (15 << TIMx_CCMR1_IC1F)) >> TIMx_CCMR1_IC1F);
+		 	break;
+		case TIM4:
+			return ((*TIM4_CCMR1 & (15 << TIMx_CCMR1_IC1F)) >> TIMx_CCMR1_IC1F);
+			break; 
+		default:
+			return 0;			
+	}
+}
+
+uint32_t getIC1PSC(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return ((*TIM1_CCMR1 & (3 << TIMx_CCMR1_IC1PSC)) >> TIMx_CCMR1_IC1PSC);
+			break;
+		case TIM2:
+			return ((*TIM2_CCMR1 & (3 << TIMx_CCMR1_IC1PSC)) >> TIMx_CCMR1_IC1PSC);
+		 	break;
+		case TIM3:
+			return ((*TIM3_CCMR1 & (3 << TIMx_CCMR1_IC1PSC)) >> TIMx_CCMR1_IC1PSC);
+		 	break;
+		case TIM4:
+			return ((*TIM4_CCMR1 & (3 << TIMx_CCMR1_IC1PSC)) >> TIMx_CCMR1_IC1PSC);
+			break; 
+		default:
+			return 0;			
+	}
+}
 
 void setOC4CE(uint32_t, bool);
-void setOC4M(uint32_t, uint32_t);
+
+void setOC4M(uint32_t module, uint32_t value)
+{
+	switch(module)
+	{
+		case TIM1:
+			*TIM1_CCMR2 |= (value << TIMx_CCMR2_OC4M);
+			break;
+		case TIM2:
+			*TIM2_CCMR2 |= (value << TIMx_CCMR2_OC4M);
+		 	break;
+		case TIM3:
+			*TIM3_CCMR2 |= (value << TIMx_CCMR2_OC4M);
+		 	break;
+		case TIM4:
+			*TIM4_CCMR2 |= (value << TIMx_CCMR2_OC4M);
+			break; 			
+	}
+}
+
 void setOC4PE(uint32_t, bool);
 void setOC4FE(uint32_t, bool);
-void setCC4S(uint32_t, uint32_t);
+
+void setCC4S(uint32_t module, uint32_t value)
+{
+	switch(module)
+	{
+		case TIM1:
+			*TIM1_CCMR2 |= (value << TIMx_CCMR2_CC4S);
+			break;
+		case TIM2:
+			*TIM2_CCMR2 |= (value << TIMx_CCMR2_CC4S);
+		 	break;
+		case TIM3:
+			*TIM3_CCMR2 |= (value << TIMx_CCMR2_CC4S);
+		 	break;
+		case TIM4:
+			*TIM4_CCMR2 |= (value << TIMx_CCMR2_CC4S);
+			break; 			
+	}
+}
+
 void setOC3CE(uint32_t, bool);
-void setOC3M(uint32_t, uint32_t);
+
+
+void setOC3M(uint32_t module, uint32_t value)
+{
+	switch(module)
+	{
+		case TIM1:
+			*TIM1_CCMR2 |= (value << TIMx_CCMR2_OC3M);
+			break;
+		case TIM2:
+			*TIM2_CCMR2 |= (value << TIMx_CCMR2_OC3M);
+		 	break;
+		case TIM3:
+			*TIM3_CCMR2 |= (value << TIMx_CCMR2_OC3M);
+		 	break;
+		case TIM4:
+			*TIM4_CCMR2 |= (value << TIMx_CCMR2_OC3M);
+			break; 			
+	}
+}
+
 void setOC3PE(uint32_t, bool);
 void setOC3FE(uint32_t, bool);
-void setCC3S(uint32_t, uint32_t);
+
+void setCC3S(uint32_t module, uint32_t value)
+{
+	switch(module)
+	{
+		case TIM1:
+			*TIM1_CCMR2 |= (value << TIMx_CCMR2_CC3S);
+			break;
+		case TIM2:
+			*TIM2_CCMR2 |= (value << TIMx_CCMR2_CC3S);
+		 	break;
+		case TIM3:
+			*TIM3_CCMR2 |= (value << TIMx_CCMR2_CC3S);
+		 	break;
+		case TIM4:
+			*TIM4_CCMR2 |= (value << TIMx_CCMR2_CC3S);
+			break; 			
+	}
+}
 
 bool getOC4CE(uint32_t);
-uint32_t getOC4M(uint32_t);
+
+
+uint32_t getOC4M(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return ((*TIM1_CCMR2 & (7 << TIMx_CCMR2_OC4M)) >> TIMx_CCMR2_OC4M);
+			break;
+		case TIM2:
+			return ((*TIM2_CCMR2 & (7 << TIMx_CCMR2_OC4M)) >> TIMx_CCMR2_OC4M);
+		 	break;
+		case TIM3:
+			return ((*TIM3_CCMR2 & (7 << TIMx_CCMR2_OC4M)) >> TIMx_CCMR2_OC4M);
+		 	break;
+		case TIM4:
+			return ((*TIM4_CCMR2 & (7 << TIMx_CCMR2_OC4M)) >> TIMx_CCMR2_OC4M);
+			break; 
+		default:
+			return 0;			
+	}
+}
+
 bool getOC4PE(uint32_t);
 bool getOC4FE(uint32_t);
-uint32_t getCC4S(uint32_t);
+
+
+uint32_t getCC4S(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return ((*TIM1_CCMR2 & (3 << TIMx_CCMR2_CC4S)) >> TIMx_CCMR2_CC4S);
+			break;
+		case TIM2:
+			return ((*TIM2_CCMR2 & (3 << TIMx_CCMR2_CC4S)) >> TIMx_CCMR2_CC4S);
+		 	break;
+		case TIM3:
+			return ((*TIM3_CCMR2 & (3 << TIMx_CCMR2_CC4S)) >> TIMx_CCMR2_CC4S);
+		 	break;
+		case TIM4:
+			return ((*TIM4_CCMR2 & (3 << TIMx_CCMR2_CC4S)) >> TIMx_CCMR2_CC4S);
+			break; 
+		default:
+			return 0;			
+	}
+}
+
 bool getOC3CE(uint32_t);
-uint32_t getOC3M(uint32_t);
+
+uint32_t getOC3M(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return ((*TIM1_CCMR2 & (7 << TIMx_CCMR2_OC3M)) >> TIMx_CCMR2_OC3M);
+			break;
+		case TIM2:
+			return ((*TIM2_CCMR2 & (7 << TIMx_CCMR2_OC3M)) >> TIMx_CCMR2_OC3M);
+		 	break;
+		case TIM3:
+			return ((*TIM3_CCMR2 & (7 << TIMx_CCMR2_OC3M)) >> TIMx_CCMR2_OC3M);
+		 	break;
+		case TIM4:
+			return ((*TIM4_CCMR2 & (7 << TIMx_CCMR2_OC3M)) >> TIMx_CCMR2_OC3M);
+			break; 
+		default:
+			return 0;			
+	}
+}
+
 bool getOC3PE(uint32_t);
 bool getOC3FE(uint32_t);
-uint32_t getCCS3(uint32_t);
 
-void setIC4F(uint32_t, uint32_t);
-void setIC4PSC(uint32_t, uint32_t);
-void setIC3F(uint32_t, uint32_t);
-void setIC3PSC(uint32_t, uint32_t);
 
-uint32_t getIC4F(uint32_t);
-uint32_t getIC4PSC(uint32_t);
-uint32_t getIC3F(uint32_t);
-uint32_t getIC3OSC(uint32_t);
+uint32_t getCCS3(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return ((*TIM1_CCMR2 & (3 << TIMx_CCMR2_CC3S)) >> TIMx_CCMR2_CC3S);
+			break;
+		case TIM2:
+			return ((*TIM2_CCMR2 & (3 << TIMx_CCMR2_CC3S)) >> TIMx_CCMR2_CC3S);
+		 	break;
+		case TIM3:
+			return ((*TIM3_CCMR2 & (3 << TIMx_CCMR2_CC3S)) >> TIMx_CCMR2_CC3S);
+		 	break;
+		case TIM4:
+			return ((*TIM4_CCMR2 & (3 << TIMx_CCMR2_CC3S)) >> TIMx_CCMR2_CC3S);
+			break; 
+		default:
+			return 0;			
+	}
+}
+
+
+void setIC4F(uint32_t module, uint32_t value)
+{
+	switch(module)
+	{
+		case TIM1:
+			*TIM1_CCMR2 |= (value << TIMx_CCMR2_IC4F);
+			break;
+		case TIM2:
+			*TIM2_CCMR2 |= (value << TIMx_CCMR2_IC4F);
+		 	break;
+		case TIM3:
+			*TIM3_CCMR2 |= (value << TIMx_CCMR2_IC4F);
+		 	break;
+		case TIM4:
+			*TIM4_CCMR2 |= (value << TIMx_CCMR2_IC4F);
+			break; 			
+	}
+}
+
+void setIC4PSC(uint32_t module, uint32_t value)
+{
+	switch(module)
+	{
+		case TIM1:
+			*TIM1_CCMR2 |= (value << TIMx_CCMR2_IC4PSC);
+			break;
+		case TIM2:
+			*TIM2_CCMR2 |= (value << TIMx_CCMR2_IC4PSC);
+		 	break;
+		case TIM3:
+			*TIM3_CCMR2 |= (value << TIMx_CCMR2_IC4PSC);
+		 	break;
+		case TIM4:
+			*TIM4_CCMR2 |= (value << TIMx_CCMR2_IC4PSC);
+			break; 			
+	}
+}
+
+void setIC3F(uint32_t module, uint32_t value)
+{
+	switch(module)
+	{
+		case TIM1:
+			*TIM1_CCMR2 |= (value << TIMx_CCMR2_IC3F);
+			break;
+		case TIM2:
+			*TIM2_CCMR2 |= (value << TIMx_CCMR2_IC3F);
+		 	break;
+		case TIM3:
+			*TIM3_CCMR2 |= (value << TIMx_CCMR2_IC3F);
+		 	break;
+		case TIM4:
+			*TIM4_CCMR2 |= (value << TIMx_CCMR2_IC3F);
+			break; 			
+	}
+}
+
+void setIC3PSC(uint32_t module, uint32_t value)
+{
+	switch(module)
+	{
+		case TIM1:
+			*TIM1_CCMR2 |= (value << TIMx_CCMR2_IC3PSC);
+			break;
+		case TIM2:
+			*TIM2_CCMR2 |= (value << TIMx_CCMR2_IC3PSC);
+		 	break;
+		case TIM3:
+			*TIM3_CCMR2 |= (value << TIMx_CCMR2_IC3PSC);
+		 	break;
+		case TIM4:
+			*TIM4_CCMR2 |= (value << TIMx_CCMR2_IC3PSC);
+			break; 			
+	}
+}
+
+uint32_t getIC4F(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return ((*TIM1_CCMR2 & (15 << TIMx_CCMR2_IC4F)) >> TIMx_CCMR2_IC4F);
+			break;
+		case TIM2:
+			return ((*TIM2_CCMR2 & (15 << TIMx_CCMR2_IC4F)) >> TIMx_CCMR2_IC4F);
+		 	break;
+		case TIM3:
+			return ((*TIM3_CCMR2 & (15 << TIMx_CCMR2_IC4F)) >> TIMx_CCMR2_IC4F);
+		 	break;
+		case TIM4:
+			return ((*TIM4_CCMR2 & (15 << TIMx_CCMR2_IC4F)) >> TIMx_CCMR2_IC4F);
+			break; 
+		default:
+			return 0;			
+	}
+}
+
+uint32_t getIC4PSC(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return ((*TIM1_CCMR2 & (3 << TIMx_CCMR2_IC4PSC)) >> TIMx_CCMR2_IC4PSC);
+			break;
+		case TIM2:
+			return ((*TIM2_CCMR2 & (3 << TIMx_CCMR2_IC4PSC)) >> TIMx_CCMR2_IC4PSC);
+		 	break;
+		case TIM3:
+			return ((*TIM3_CCMR2 & (3 << TIMx_CCMR2_IC4PSC)) >> TIMx_CCMR2_IC4PSC);
+		 	break;
+		case TIM4:
+			return ((*TIM4_CCMR2 & (3 << TIMx_CCMR2_IC4PSC)) >> TIMx_CCMR2_IC4PSC);
+			break; 
+		default:
+			return 0;			
+	}
+}
+
+uint32_t getIC3F(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return ((*TIM1_CCMR2 & (15 << TIMx_CCMR2_IC3F)) >> TIMx_CCMR2_IC3F);
+			break;
+		case TIM2:
+			return ((*TIM2_CCMR2 & (15 << TIMx_CCMR2_IC3F)) >> TIMx_CCMR2_IC3F);
+		 	break;
+		case TIM3:
+			return ((*TIM3_CCMR2 & (15 << TIMx_CCMR2_IC3F)) >> TIMx_CCMR2_IC3F);
+		 	break;
+		case TIM4:
+			return ((*TIM4_CCMR2 & (15 << TIMx_CCMR2_IC3F)) >> TIMx_CCMR2_IC3F);
+			break; 
+		default:
+			return 0;			
+	}
+}
+
+uint32_t getIC3PSC(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return ((*TIM1_CCMR2 & (3 << TIMx_CCMR2_IC3PSC)) >> TIMx_CCMR2_IC3PSC);
+			break;
+		case TIM2:
+			return ((*TIM2_CCMR2 & (3 << TIMx_CCMR2_IC3PSC)) >> TIMx_CCMR2_IC3PSC);
+		 	break;
+		case TIM3:
+			return ((*TIM3_CCMR2 & (3 << TIMx_CCMR2_IC3PSC)) >> TIMx_CCMR2_IC3PSC);
+		 	break;
+		case TIM4:
+			return ((*TIM4_CCMR2 & (3 << TIMx_CCMR2_IC3PSC)) >> TIMx_CCMR2_IC3PSC);
+			break; 
+		default:
+			return 0;			
+	}
+}
+
 
 void setCC4P(uint32_t, bool);
 void setCC4E(uint32_t, bool);
@@ -1576,6 +2203,7 @@ void setCC1NE(uint32_t, bool);
 void setCC1P(uint32_t, bool);
 void setCC1E(uint32_t, bool);
 
+
 bool getCC4P(uint32_t);
 bool getCC4E(uint32_t);
 bool getCC3NP(uint32_t);
@@ -1591,22 +2219,360 @@ bool getCC1NE(uint32_t);
 bool getCC1P(uint32_t);
 bool getCC1E(uint32_t);
 
-void setMOE(uint32_t, bool);
-void setAOE(uint32_t, bool);
-void setBKP(uint32_t, bool);
-void setBKE(uint32_t, bool);
-void setOSSR(uint32_t, bool);
-void setOSSI(uint32_t, bool);
-void setLOCK(uint32_t, uint32_t);
-void setDTG(uint32_t, uint32_t);
 
-bool getMOE(uint32_t);
-bool getAOE(uint32_t);
-bool getBKP(uint32_t);
-bool getBKE(uint32_t);
-bool getOSSR(uint32_t);
-bool getOSSI(uint32_t);
 
+
+
+void setMOE(uint32_t module, bool state)
+{
+	switch(module)
+	{
+		case TIM1:
+			if(state)
+				*TIM1_BDTR |= (1 << TIMx_BDTR_MOE);
+			else
+				*TIM1_BDTR &= ~(1 << TIMx_BDTR_MOE);
+			break;
+		case TIM2:
+			if(state)
+				*TIM2_BDTR |= (1 << TIMx_BDTR_MOE);
+			else
+				*TIM2_BDTR &= ~(1 << TIMx_BDTR_MOE);
+		 	break;
+		case TIM3:
+			if(state)
+				*TIM3_BDTR |= (1 << TIMx_BDTR_MOE);
+			else
+				*TIM3_BDTR &= ~(1 << TIMx_BDTR_MOE);
+		 	break;
+		case TIM4:
+			if(state)
+				*TIM4_BDTR |= (1 << TIMx_BDTR_MOE);
+			else
+				*TIM4_BDTR &= ~(1 << TIMx_BDTR_MOE);
+			break; 			
+	}
+}
+
+void setAOE(uint32_t module, bool state)
+{
+	switch(module)
+	{
+		case TIM1:
+			if(state)
+				*TIM1_BDTR |= (1 << TIMx_BDTR_AOE);
+			else
+				*TIM1_BDTR &= ~(1 << TIMx_BDTR_AOE);
+			break;
+		case TIM2:
+			if(state)
+				*TIM2_BDTR |= (1 << TIMx_BDTR_AOE);
+			else
+				*TIM2_BDTR &= ~(1 << TIMx_BDTR_AOE);
+		 	break;
+		case TIM3:
+			if(state)
+				*TIM3_BDTR |= (1 << TIMx_BDTR_AOE);
+			else
+				*TIM3_BDTR &= ~(1 << TIMx_BDTR_AOE);
+		 	break;
+		case TIM4:
+			if(state)
+				*TIM4_BDTR |= (1 << TIMx_BDTR_AOE);
+			else
+				*TIM4_BDTR &= ~(1 << TIMx_BDTR_AOE);
+			break; 			
+	}
+}
+
+void setBKP(uint32_t module, bool state)
+{
+	switch(module)
+	{
+		case TIM1:
+			if(state)
+				*TIM1_BDTR |= (1 << TIMx_BDTR_BKP);
+			else
+				*TIM1_BDTR &= ~(1 << TIMx_BDTR_BKP);
+			break;
+		case TIM2:
+			if(state)
+				*TIM2_BDTR |= (1 << TIMx_BDTR_BKP);
+			else
+				*TIM2_BDTR &= ~(1 << TIMx_BDTR_BKP);
+		 	break;
+		case TIM3:
+			if(state)
+				*TIM3_BDTR |= (1 << TIMx_BDTR_BKP);
+			else
+				*TIM3_BDTR &= ~(1 << TIMx_BDTR_BKP);
+		 	break;
+		case TIM4:
+			if(state)
+				*TIM4_BDTR |= (1 << TIMx_BDTR_BKP);
+			else
+				*TIM4_BDTR &= ~(1 << TIMx_BDTR_BKP);
+			break; 			
+	}
+}
+
+void setBKE(uint32_t module, bool state)
+{
+	switch(module)
+	{
+		case TIM1:
+			if(state)
+				*TIM1_BDTR |= (1 << TIMx_BDTR_BKE);
+			else
+				*TIM1_BDTR &= ~(1 << TIMx_BDTR_BKE);
+			break;
+		case TIM2:
+			if(state)
+				*TIM2_BDTR |= (1 << TIMx_BDTR_BKE);
+			else
+				*TIM2_BDTR &= ~(1 << TIMx_BDTR_BKE);
+		 	break;
+		case TIM3:
+			if(state)
+				*TIM3_BDTR |= (1 << TIMx_BDTR_BKE);
+			else
+				*TIM3_BDTR &= ~(1 << TIMx_BDTR_BKE);
+		 	break;
+		case TIM4:
+			if(state)
+				*TIM4_BDTR |= (1 << TIMx_BDTR_BKE);
+			else
+				*TIM4_BDTR &= ~(1 << TIMx_BDTR_BKE);
+			break; 			
+	}
+}
+
+void setOSSR(uint32_t module, bool state)
+{
+	switch(module)
+	{
+		case TIM1:
+			if(state)
+				*TIM1_BDTR |= (1 << TIMx_BDTR_OSSR);
+			else
+				*TIM1_BDTR &= ~(1 << TIMx_BDTR_OSSR);
+			break;
+		case TIM2:
+			if(state)
+				*TIM2_BDTR |= (1 << TIMx_BDTR_OSSR);
+			else
+				*TIM2_BDTR &= ~(1 << TIMx_BDTR_OSSR);
+		 	break;
+		case TIM3:
+			if(state)
+				*TIM3_BDTR |= (1 << TIMx_BDTR_OSSR);
+			else
+				*TIM3_BDTR &= ~(1 << TIMx_BDTR_OSSR);
+		 	break;
+		case TIM4:
+			if(state)
+				*TIM4_BDTR |= (1 << TIMx_BDTR_OSSR);
+			else
+				*TIM4_BDTR &= ~(1 << TIMx_BDTR_OSSR);
+			break; 			
+	}
+}
+
+void setOSSI(uint32_t module, bool state)
+{
+	switch(module)
+	{
+		case TIM1:
+			if(state)
+				*TIM1_BDTR |= (1 << TIMx_BDTR_OSSI);
+			else
+				*TIM1_BDTR &= ~(1 << TIMx_BDTR_OSSI);
+			break;
+		case TIM2:
+			if(state)
+				*TIM2_BDTR |= (1 << TIMx_BDTR_OSSI);
+			else
+				*TIM2_BDTR &= ~(1 << TIMx_BDTR_OSSI);
+		 	break;
+		case TIM3:
+			if(state)
+				*TIM3_BDTR |= (1 << TIMx_BDTR_OSSI);
+			else
+				*TIM3_BDTR &= ~(1 << TIMx_BDTR_OSSI);
+		 	break;
+		case TIM4:
+			if(state)
+				*TIM4_BDTR |= (1 << TIMx_BDTR_OSSI);
+			else
+				*TIM4_BDTR &= ~(1 << TIMx_BDTR_OSSI);
+			break; 			
+	}
+}
+
+void setLOCK(uint32_t module, uint32_t value)
+{
+	switch(module)
+	{
+		case TIM1:
+			*TIM1_BDTR |= (value << TIMx_BDTR_LOCK);
+			break;
+		case TIM2:
+			*TIM2_BDTR |= (value << TIMx_BDTR_LOCK);
+		 	break;
+		case TIM3:
+			*TIM3_BDTR |= (value << TIMx_BDTR_LOCK);
+		 	break;
+		case TIM4:
+			*TIM4_BDTR |= (value << TIMx_BDTR_LOCK);
+			break; 			
+	}
+}
+
+void setDTG(uint32_t module, uint32_t value)
+{
+	switch(module)
+	{
+		case TIM1:
+			*TIM1_BDTR |= (value << TIMx_BDTR_DTG);
+			break;
+		case TIM2:
+			*TIM2_BDTR |= (value << TIMx_BDTR_DTG);
+		 	break;
+		case TIM3:
+			*TIM3_BDTR |= (value << TIMx_BDTR_DTG);
+		 	break;
+		case TIM4:
+			*TIM4_BDTR |= (value << TIMx_BDTR_DTG);
+			break; 			
+	}
+}
+
+bool getMOE(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return (*TIM1_BDTR & (1 << TIMx_BDTR_MOE));
+			break;
+		case TIM2:
+			return(*TIM2_BDTR & (1 << TIMx_BDTR_MOE));
+		 	break;
+		case TIM3:
+			return(*TIM3_BDTR & (1 << TIMx_BDTR_MOE));
+		 	break;
+		case TIM4:
+			return(*TIM4_BDTR & (1 << TIMx_BDTR_MOE));
+			break; 	
+		default:
+			return false;		
+	}	
+}
+
+bool getAOE(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return (*TIM1_BDTR & (1 << TIMx_BDTR_AOE));
+			break;
+		case TIM2:
+			return(*TIM2_BDTR & (1 << TIMx_BDTR_AOE));
+		 	break;
+		case TIM3:
+			return(*TIM3_BDTR & (1 << TIMx_BDTR_AOE));
+		 	break;
+		case TIM4:
+			return(*TIM4_BDTR & (1 << TIMx_BDTR_AOE));
+			break; 	
+		default:
+			return false;		
+	}	
+}
+
+bool getBKP(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return (*TIM1_BDTR & (1 << TIMx_BDTR_BKP));
+			break;
+		case TIM2:
+			return(*TIM2_BDTR & (1 << TIMx_BDTR_BKP));
+		 	break;
+		case TIM3:
+			return(*TIM3_BDTR & (1 << TIMx_BDTR_BKP));
+		 	break;
+		case TIM4:
+			return(*TIM4_BDTR & (1 << TIMx_BDTR_BKP));
+			break; 	
+		default:
+			return false;		
+	}	
+}
+
+bool getBKE(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return (*TIM1_BDTR & (1 << TIMx_BDTR_BKE));
+			break;
+		case TIM2:
+			return (*TIM2_BDTR & (1 << TIMx_BDTR_BKE));
+		 	break;
+		case TIM3:
+			return (*TIM3_BDTR & (1 << TIMx_BDTR_BKE));
+		 	break;
+		case TIM4:
+			return (*TIM4_BDTR & (1 << TIMx_BDTR_BKE));
+			break; 	
+		default:
+			return false;		
+	}	
+}
+
+
+bool getOSSR(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return (*TIM1_BDTR & (1 << TIMx_BDTR_OSSR));
+			break;
+		case TIM2:
+			return(*TIM2_BDTR & (1 << TIMx_BDTR_OSSR));
+		 	break;
+		case TIM3:
+			return(*TIM3_BDTR & (1 << TIMx_BDTR_OSSR));
+		 	break;
+		case TIM4:
+			return(*TIM4_BDTR & (1 << TIMx_BDTR_OSSR));
+			break; 	
+		default:
+			return false;		
+	}	
+}
+
+bool getOSSI(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return (*TIM1_BDTR & (1 << TIMx_BDTR_OSSI));
+			break;
+		case TIM2:
+			return(*TIM2_BDTR & (1 << TIMx_BDTR_OSSI));
+		 	break;
+		case TIM3:
+			return(*TIM3_BDTR & (1 << TIMx_BDTR_OSSI));
+		 	break;
+		case TIM4:
+			return(*TIM4_BDTR & (1 << TIMx_BDTR_OSSI));
+			break; 	
+		default:
+			return false;		
+	}	
+}
 
 uint32_t getLOCK(uint32_t module)
 {
@@ -1650,9 +2616,43 @@ uint32_t getDTG(uint32_t module)
 	}
 }
 
-void setDLB(uint32_t, uint32_t);
-void setDBA(uint32_t, uint32_t);
+void setDLB(uint32_t module, uint32_t value)
+{
+	switch(module)
+	{
+		case TIM1:
+			*TIM1_DCR |= (value << TIMx_DCR_DBL);
+			break;
+		case TIM2:
+			*TIM2_DCR |= (value << TIMx_DCR_DBL);
+		 	break;
+		case TIM3:
+			*TIM3_DCR |= (value << TIMx_DCR_DBL);
+		 	break;
+		case TIM4:
+			*TIM4_DCR |= (value << TIMx_DCR_DBL);
+			break; 			
+	}
+}
 
+void setDBA(uint32_t module, uint32_t value)
+{
+	switch(module)
+	{
+		case TIM1:
+			*TIM1_DCR |= (value << TIMx_DCR_DBA);
+			break;
+		case TIM2:
+			*TIM2_DCR |= (value << TIMx_DCR_DBA);
+		 	break;
+		case TIM3:
+			*TIM3_DCR |= (value << TIMx_DCR_DBA);
+		 	break;
+		case TIM4:
+			*TIM4_DCR |= (value << TIMx_DCR_DBA);
+			break; 			
+	}
+}
 
 uint32_t getDLB(uint32_t module)
 {
@@ -1695,7 +2695,6 @@ uint32_t getDBA(uint32_t module)
 			return 0;			
 	}
 }
-*/
 
 void setTIMx_CNT(uint32_t module, uint32_t value)
 {

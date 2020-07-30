@@ -17,6 +17,11 @@ SECTIONS
 		_end_of_text = .;
 	} >FLASH
 	
+	.ascii : {
+		*(.text)
+		. = ALIGN(4);
+	}  >FLASH
+	
 	.stack (NOLOAD) : {
 		. = . + 0x400;
 		_STACK_END = .;

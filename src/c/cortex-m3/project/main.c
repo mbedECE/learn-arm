@@ -14,6 +14,8 @@ void initialize()
 {
 	configureSystemClock();
 	delays_init(SYS_CLK);
+	lcdInit(SPI1, PORTA, GPIO_PIN7, GPIO_PIN5, GPIO_PIN4, GPIO_PIN3, GPIO_PIN2, GPIO_PIN1, SYS_CLK);
+	
 	HCSR04();
 }
 
@@ -67,7 +69,7 @@ void HCSR04(void)
 void trigger(void)
 {
 	pinState(PORTB, GPIO_PIN1, HIGH); 
-	delay_ms(1);
+	delay_us(20);
 	pinState(PORTB, GPIO_PIN1, LOW);	
 }
 

@@ -94,10 +94,10 @@
 #define TIMx_CCMR1_OC1FE 2
 #define TIMx_CCMR1_CC1S 0
 
-#define TIMx_CCMR1_IC4F 12
-#define TIMx_CCMR1_IC4PSC 10
-#define TIMx_CCMR1_IC3F 4
-#define TIMx_CCMR1_IC3PSC 2
+#define TIMx_CCMR1_IC2F 12
+#define TIMx_CCMR1_IC2PSC 10
+#define TIMx_CCMR1_IC1F 4
+#define TIMx_CCMR1_IC1PSC 2
 
 #define TIMx_CCMR2_OC4CE 15
 #define TIMx_CCMR2_OC4M 12
@@ -133,8 +133,9 @@
 #define TIMx_BDTR_MOE 15
 #define TIMx_BDTR_AOE 14
 #define TIMx_BDTR_BKP 13
-#define TIMx_BDTR_OSSR 12
-#define TIMx_BDTR_OSSI 11
+#define TIMx_BDTR_BKE 12
+#define TIMx_BDTR_OSSR 11
+#define TIMx_BDTR_OSSI 10
 #define TIMx_BDTR_LOCK 8
 #define TIMx_BDTR_DTG 0
 
@@ -393,7 +394,7 @@ void setIC1PSC(uint32_t, uint32_t);
 uint32_t getIC2F(uint32_t);
 uint32_t getIC2PSC(uint32_t);
 uint32_t getIC1F(uint32_t);
-uint32_t getIC1OSC(uint32_t);
+uint32_t getIC1PSC(uint32_t);
 
 
 void setOC4CE(uint32_t, bool);
@@ -426,7 +427,7 @@ void setIC3PSC(uint32_t, uint32_t);
 uint32_t getIC4F(uint32_t);
 uint32_t getIC4PSC(uint32_t);
 uint32_t getIC3F(uint32_t);
-uint32_t getIC3OSC(uint32_t);
+uint32_t getIC3PSC(uint32_t);
 
 void setCC4P(uint32_t, bool);
 void setCC4E(uint32_t, bool);

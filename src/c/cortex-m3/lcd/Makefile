@@ -13,19 +13,17 @@ DIR=/home/ubuntu/Desktop/repositories/stlink/build/Release/bin/
 ADDR=0x8000000
 SIZE=0x1000
 
-all:main.o stm32_startup.o jlx12864g-086.o final.elf
+all:main.o stm32_startup.o final.elf
 
 stm32_startup.o: stm32_startup.c
 	$(CC) $(CFLAGS) $^ -o $@ 
-
-jlx12864g-086.o: jlx12864g-086.c
-	$(CC) $(CFLAGS) $^ -o $@
 	
 main.o: main.c
 	$(CC) $(CFLAGS) $^ -o $@
 	
-final.elf: stm32_startup.o main.o jlx12864g-086.o 
+final.elf: stm32_startup.o main.o
 	$(LD) $^ -o $@  $(LDFLAGS)
+	$(CP) -Obinary final.elf final.bin
 	
 clean:
 	rm -rf *.o *.elf *.map *.bin
