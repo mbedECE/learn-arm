@@ -1,0 +1,13 @@
+<map id="main.c" name="main.c">
+<area shape="rect" id="node1" title=" " alt="" coords="173,5,249,35"/>
+<area shape="rect" id="node2" href="$d4/dbf/main_8h.html" title="This header file contains all the function declarations for main." alt="" coords="172,83,250,112"/>
+<area shape="rect" id="node3" title=" " alt="" coords="128,392,209,421"/>
+<area shape="rect" id="node4" href="$d0/dea/jlx12864g-086_8h.html" title="This header file contains all the function declarations for the LCD module." alt="" coords="136,160,286,189"/>
+<area shape="rect" id="node6" href="$da/d87/spi_8h.html" title=" " alt="" coords="431,237,490,267"/>
+<area shape="rect" id="node7" href="$db/d65/rcc_8h.html" title="This header file contains all the function declarations for the LCD module." alt="" coords="498,315,636,344"/>
+<area shape="rect" id="node8" href="$dd/dee/delay_8h.html" title="This header file contains all the function declarations for the LCD module." alt="" coords="237,237,316,267"/>
+<area shape="rect" id="node10" href="$d6/d7c/gpio_8h.html" title="This header file contains all the function declarations for the LCD module." alt="" coords="62,237,133,267"/>
+<area shape="rect" id="node11" href="$de/df7/flash_8h.html" title="This header file contains all the function declarations for the LCD module." alt="" coords="31,315,106,344"/>
+<area shape="rect" id="node5" title=" " alt="" coords="362,392,457,421"/>
+<area shape="rect" id="node9" href="$d3/dcb/systick_8h.html" title=" " alt="" coords="231,315,322,344"/>
+</map>

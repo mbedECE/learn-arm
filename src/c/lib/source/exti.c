@@ -61,32 +61,32 @@ void setEXTI_PR(uint32_t bit, bool state)
 
 bool getEXTI_IMR(uint32_t bit)
 {
-	return *EXTI_IMR & ~(1 << bit);
+	return *EXTI_IMR & (1 << bit);
 }
 
 bool getEXTI_EMR(uint32_t bit)
 {
-	return *EXTI_EMR & ~(1 << bit);
+	return *EXTI_EMR & (1 << bit);
 }
 
 bool getEXTI_RTSR(uint32_t bit)
 {
-	return *EXTI_RTSR & ~(1 << bit);
+	return *EXTI_RTSR & (1 << bit);
 }
 
 bool getEXTI_FTSR(uint32_t bit)
 {
-	return *EXTI_FTSR & ~(1 << bit);
+	return *EXTI_FTSR & (1 << bit);
 }
 
 bool getEXTI_SWIER(uint32_t bit)
 {
-	return *EXTI_SWIER & ~(1 << bit);
+	return *EXTI_SWIER & (1 << bit);
 }
 
 bool getEXTI_PR(uint32_t bit)
 {
-	return *EXTI_PR & ~(1 << bit);
+	return *EXTI_PR & (1 << bit);
 }
 
 

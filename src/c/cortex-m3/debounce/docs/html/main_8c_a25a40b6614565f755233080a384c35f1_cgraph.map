@@ -1,0 +1,5 @@
+<map id="initialize" name="initialize">
+<area shape="rect" id="node1" title="System initialization." alt="" coords="5,31,84,57"/>
+<area shape="rect" id="node2" href="$main_8c.html#a12328a89779fb2776c00ab40b53319a2" title="System clock confoguration." alt="" coords="132,5,299,32"/>
+<area shape="rect" id="node3" href="$main_8c.html#adc52587fad33ace0c6a1268953777d6f" title="HC&#45;SRO4 configuration." alt="" coords="178,56,253,83"/>
+</map>

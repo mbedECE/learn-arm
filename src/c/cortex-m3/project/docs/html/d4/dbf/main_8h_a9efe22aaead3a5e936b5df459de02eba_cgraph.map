@@ -1,0 +1,28 @@
+<map id="initialize" name="initialize">
+<area shape="rect" id="node1" title="System initialization." alt="" coords="5,512,92,541"/>
+<area shape="rect" id="node2" href="$d6/d7c/gpio_8h.html#a439e53843c575f79671ed97866108782" title=" " alt="" coords="411,5,563,35"/>
+<area shape="rect" id="node3" href="$d0/d29/main_8c.html#a12328a89779fb2776c00ab40b53319a2" title="System clock confoguration." alt="" coords="140,512,339,541"/>
+<area shape="rect" id="node18" href="$dd/dee/delay_8h.html#a18b702d5b49c1b404219437ba61eb913" title="Deley configuratio." alt="" coords="187,939,292,968"/>
+<area shape="rect" id="node23" href="$d0/d29/main_8c.html#adc52587fad33ace0c6a1268953777d6f" title="HC&#45;SRO4 configuration." alt="" coords="196,85,283,115"/>
+<area shape="rect" id="node26" href="$d0/dea/jlx12864g-086_8h.html#a9ffc724093e31df58e5e5bea364c72f7" title="LCD initialization and setup." alt="" coords="204,992,275,1021"/>
+<area shape="rect" id="node4" href="$db/d65/rcc_8h.html#ae6afc13fa775027cf00c702db10c7b78" title=" " alt="" coords="434,165,539,195"/>
+<area shape="rect" id="node5" href="$db/d65/rcc_8h.html#a0b52b269c09b623be3189a1fe0b380cb" title=" " alt="" coords="433,219,541,248"/>
+<area shape="rect" id="node6" href="$db/d65/rcc_8h.html#a1b74430b4de3f741fb9d163863e28889" title=" " alt="" coords="435,272,538,301"/>
+<area shape="rect" id="node7" href="$db/d65/rcc_8h.html#a3be91f727edb82bd215846bd539d7387" title=" " alt="" coords="435,325,539,355"/>
+<area shape="rect" id="node8" href="$db/d65/rcc_8h.html#a82d47532e7b273cc3c952f535101a7e0" title=" " alt="" coords="445,379,529,408"/>
+<area shape="rect" id="node9" href="$db/d65/rcc_8h.html#acd7ec726841aa09291e03caf9dc99cad" title=" " alt="" coords="437,432,536,461"/>
+<area shape="rect" id="node10" href="$db/d65/rcc_8h.html#a6db581a7d2d063914c641c760ebacb1c" title=" " alt="" coords="439,485,534,515"/>
+<area shape="rect" id="node11" href="$db/d65/rcc_8h.html#ab71a6ad12903e798c100623dd9eb8c94" title=" " alt="" coords="423,539,550,568"/>
+<area shape="rect" id="node12" href="$db/d65/rcc_8h.html#a02a454816ffa1e12fa575a823541c24b" title=" " alt="" coords="427,592,546,621"/>
+<area shape="rect" id="node13" href="$db/d65/rcc_8h.html#ae96d85e94276563b13b7e2913663509a" title=" " alt="" coords="434,645,539,675"/>
+<area shape="rect" id="node14" href="$de/df7/flash_8h.html#ace9801898b51369815b2c84090247fda" title=" " alt="" coords="438,699,535,728"/>
+<area shape="rect" id="node15" href="$db/d65/rcc_8h.html#a53f21eb4bf2dc08206465ec9e1732e31" title=" " alt="" coords="451,752,523,781"/>
+<area shape="rect" id="node16" href="$db/d65/rcc_8h.html#a66357a0cd7d9abe6d56beb13e36098a6" title=" " alt="" coords="431,805,542,835"/>
+<area shape="rect" id="node17" href="$de/df7/flash_8h.html#a402a1d3e698c805d9b06d251ad84bcd7" title=" " alt="" coords="421,859,552,888"/>
+<area shape="rect" id="node19" href="$d3/dcb/systick_8h.html#ae21aa60af271633215766ee6be6b8870" title=" " alt="" coords="409,912,565,941"/>
+<area shape="rect" id="node20" href="$d3/dcb/systick_8h.html#a1f7309053baf77d254dbee15d7d3eec5" title=" " alt="" coords="397,965,576,995"/>
+<area shape="rect" id="node21" href="$d3/dcb/systick_8h.html#ad22b34d574ab648dcef84ffaca75de8f" title=" " alt="" coords="398,1019,575,1048"/>
+<area shape="rect" id="node22" href="$d3/dcb/systick_8h.html#ab70024ec848e492efb0f9a0b266641bd" title=" " alt="" coords="417,1072,557,1101"/>
+<area shape="rect" id="node24" href="$db/d65/rcc_8h.html#a8716597cde5f9094c477d09e155f78fe" title=" " alt="" coords="387,59,587,88"/>
+<area shape="rect" id="node25" href="$d6/d7c/gpio_8h.html#a8fb639edaa0779019761b860827fc20c" title=" " alt="" coords="443,112,531,141"/>
+</map>

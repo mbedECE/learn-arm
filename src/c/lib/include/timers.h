@@ -331,7 +331,7 @@ void setCC4IF(uint32_t, bool);
 void setCC3IF(uint32_t, bool);
 void setCC2IF(uint32_t, bool);
 void setCC1IF(uint32_t, bool);
-void setUIF(uint32_t, bool);
+void clearUIF(uint32_t);
 
 bool getCC4OF(uint32_t);
 bool getCC3OF(uint32_t);

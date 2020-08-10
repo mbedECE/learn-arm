@@ -2,12 +2,26 @@
 
 int main(void)
 {
-	initialize();
+	initialize();	
 	
 	while(1)
 	{
-
+	
 	}
+}
+
+void TIM1_UP_Handler(void)
+{
+
+}
+
+void EXTI9_5_Handler(void)
+{
+	if(getEXTI_PR(GPIO_PIN6))
+	{
+		
+	}
+	
 }
 
 void initialize()
@@ -17,6 +31,11 @@ void initialize()
 	lcdInit(SPI1, PORTA, GPIO_PIN7, GPIO_PIN5, GPIO_PIN4, GPIO_PIN3, GPIO_PIN2, GPIO_PIN1, SYS_CLK);
 	
 	HCSR04();
+	
+	configurePortPin(PORTA, GPIO_PIN6, CNF_MODE_INPUT_PULL_UP_DN, MODE_INPUT);	
+	setEXTI_IMR(GPIO_PIN6, true);
+	setEXTI_RTSR(GPIO_PIN6, true);
+	enableIRQ(23);
 }
 
 void configureSystemClock(void)
@@ -53,14 +72,14 @@ void configureSystemClock(void)
 	
 	//Turn off HSI to save power
 	disableHSI();
-}	
+}
 
 void HCSR04(void)
 {	
 	enablePeripheralClock(RCC_APB2ENR_IOPAEN);
 	enablePeripheralClock(RCC_APB2ENR_IOPBEN);
 	
-	configurePortPin(PORTB, GPIO_PIN1, CNF_MODE_OUTPUT_GP_PP, MODE_OUTPUT_2MHz);	//TRIG
+	configurePortPin(PORTB, GPIO_PIN1, CNF_MODE_OUTPUT_GP_PP, MODE_OUTPUT_2MHz);		//TRIG
 	configurePortPin(PORTA, GPIO_PIN8, CNF_MODE_INPUT_FLOAT, MODE_INPUT);		//ECHO
 	
 	pinState(PORTB, GPIO_PIN1, LOW);

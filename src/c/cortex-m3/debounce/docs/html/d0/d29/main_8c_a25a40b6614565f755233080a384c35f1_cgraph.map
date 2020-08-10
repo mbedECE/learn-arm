@@ -1,0 +1,5 @@
+<map id="initialize" name="initialize">
+<area shape="rect" id="node1" title="System initialization." alt="" coords="5,32,92,61"/>
+<area shape="rect" id="node2" href="$d0/d29/main_8c.html#a12328a89779fb2776c00ab40b53319a2" title="System clock confoguration." alt="" coords="140,5,339,35"/>
+<area shape="rect" id="node3" href="$d0/d29/main_8c.html#adea0f58df14312984c7ed8f3e981e9f3" title="Timer 1 confoguration." alt="" coords="163,59,316,88"/>
+</map>

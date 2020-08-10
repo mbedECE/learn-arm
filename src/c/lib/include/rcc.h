@@ -1,3 +1,11 @@
+/**
+	\file rcc.h
+	\brief This header file contains all the function declarations for the LCD module
+	\author Mark R. Jennings <mbedece@gmail.com>
+	\date Auguts 2, 2020
+	\version 1.0
+*/
+
 #ifndef _RCC_H
 #define _RCC_H
 

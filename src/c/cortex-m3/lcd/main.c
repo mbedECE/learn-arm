@@ -1,13 +1,23 @@
 #include "main.h"
 
 uint8_t A = 9;
+uint8_t B = 55;
+uint8_t C = 55;
+uint8_t D = 55;
+
+uint32_t E = 55;
+uint32_t F = 55;
+
+uint64_t G = 7847;
+
+
 
 int main(void)
 {
 	initialize();
 	
 	setCursor(8, 0);
-	println("0");
+	println("A");
 	
 	while(1)	
 	{					

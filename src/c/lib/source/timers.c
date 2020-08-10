@@ -1434,7 +1434,39 @@ void setCC4IE(uint32_t, bool);
 void setCC3IE(uint32_t, bool);
 void setCC2IE(uint32_t, bool);
 void setCC1IE(uint32_t, bool);
-void setUIE(uint32_t, bool);
+
+
+
+void setUIE(uint32_t module, bool state)
+{
+	switch(module)
+	{
+		case TIM1:
+			if(state)
+				*TIM1_DIER |= (1 << TIMx_DIER_UIE);
+			else
+				*TIM1_DIER &= ~(1 << TIMx_DIER_UIE);
+			break;
+		case TIM2:
+			if(state)
+				*TIM2_DIER |= (1 << TIMx_DIER_UIE);
+			else
+				*TIM2_DIER &= ~(1 << TIMx_DIER_UIE);
+		 	break;
+		case TIM3:
+			if(state)
+				*TIM3_DIER |= (1 << TIMx_DIER_UIE);
+			else
+				*TIM3_DIER &= ~(1 << TIMx_DIER_UIE);
+		 	break;
+		case TIM4:
+			if(state)
+				*TIM4_DIER |= (1 << TIMx_DIER_UIE);
+			else
+				*TIM4_DIER &= ~(1 << TIMx_DIER_UIE);
+			break; 			
+	}
+}
 
 bool getTDE(uint32_t);
 bool getCOMDE(uint32_t);
@@ -1450,7 +1482,30 @@ bool getCC4IE(uint32_t);
 bool getCC3IE(uint32_t);
 bool getCC2IE(uint32_t);
 bool getCC1IE(uint32_t);
-bool getUIE(uint32_t);
+
+
+
+bool getUIE(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return (*TIM1_DIER & (1 << TIMx_DIER_UIE));
+			break;
+		case TIM2:
+			return(*TIM2_DIER & (1 << TIMx_DIER_UIE));
+		 	break;
+		case TIM3:
+			return(*TIM3_DIER & (1 << TIMx_DIER_UIE));
+		 	break;
+		case TIM4:
+			return(*TIM4_DIER & (1 << TIMx_DIER_UIE));
+			break; 	
+		default:
+			return false;		
+	}	
+}
+
 
 void setCC4OF(uint32_t, bool);
 void setCC3OF(uint32_t, bool);
@@ -1463,7 +1518,29 @@ void setCC4IF(uint32_t, bool);
 void setCC3IF(uint32_t, bool);
 void setCC2IF(uint32_t, bool);
 void setCC1IF(uint32_t, bool);
-void setUIF(uint32_t, bool);
+
+
+
+
+void clearUIF(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			*TIM1_SR = ~(1 << TIMx_SR_UIF);
+			break;
+		case TIM2:
+			*TIM2_SR = ~(1 << TIMx_SR_UIF);
+		 	break;
+		case TIM3:
+			*TIM3_SR = ~(1 << TIMx_SR_UIF);
+		 	break;
+		case TIM4:
+			*TIM4_SR = ~(1 << TIMx_SR_UIF);
+			break; 			
+	}
+}
+
 
 bool getCC4OF(uint32_t);
 bool getCC3OF(uint32_t);
@@ -1476,7 +1553,29 @@ bool getCC4IF(uint32_t);
 bool getCC3IF(uint32_t);
 bool getCC2IF(uint32_t);
 bool getCC1IF(uint32_t);
-bool getUIF(uint32_t);
+
+
+
+bool getUIF(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return (*TIM1_SR & (1 << TIMx_SR_UIF));
+			break;
+		case TIM2:
+			return(*TIM2_SR & (1 << TIMx_SR_UIF));
+		 	break;
+		case TIM3:
+			return(*TIM3_SR & (1 << TIMx_SR_UIF));
+		 	break;
+		case TIM4:
+			return(*TIM4_SR & (1 << TIMx_SR_UIF));
+			break; 	
+		default:
+			return false;		
+	}	
+}
 
 void setBG(uint32_t, bool);
 void setTG(uint32_t, bool);
@@ -1485,7 +1584,40 @@ void setCC4G(uint32_t, bool);
 void setCC3G(uint32_t, bool);
 void setCC2G(uint32_t, bool);
 void setCC1G(uint32_t, bool);
-void setUG(uint32_t, bool);
+
+
+
+void setUG(uint32_t module, bool state)
+{
+	switch(module)
+	{
+		case TIM1:
+			if(state)
+				*TIM1_EGR |= (1 << TIMx_EGR_UG);
+			else
+				*TIM1_EGR &= ~(1 << TIMx_EGR_UG);
+			break;
+		case TIM2:
+			if(state)
+				*TIM2_EGR |= (1 << TIMx_EGR_UG);
+			else
+				*TIM2_EGR &= ~(1 << TIMx_EGR_UG);
+		 	break;
+		case TIM3:
+			if(state)
+				*TIM3_EGR |= (1 << TIMx_EGR_UG);
+			else
+				*TIM3_EGR &= ~(1 << TIMx_EGR_UG);
+		 	break;
+		case TIM4:
+			if(state)
+				*TIM4_EGR |= (1 << TIMx_EGR_UG);
+			else
+				*TIM4_EGR &= ~(1 << TIMx_EGR_UG);
+			break; 			
+	}
+}
+
 
 bool getBG(uint32_t);
 bool getTG(uint32_t);
@@ -1494,7 +1626,29 @@ bool getCC4G(uint32_t);
 bool getCC3G(uint32_t);
 bool getCC2G(uint32_t);
 bool getCC1G(uint32_t);
-bool getUG(uint32_t);
+
+
+
+bool getUG(uint32_t module)
+{
+	switch(module)
+	{
+		case TIM1:
+			return (*TIM1_EGR & (1 << TIMx_EGR_UG));
+			break;
+		case TIM2:
+			return(*TIM2_EGR & (1 << TIMx_EGR_UG));
+		 	break;
+		case TIM3:
+			return(*TIM3_EGR & (1 << TIMx_EGR_UG));
+		 	break;
+		case TIM4:
+			return(*TIM4_EGR & (1 << TIMx_EGR_UG));
+			break; 	
+		default:
+			return false;		
+	}	
+}
 
 void setOC2CE(uint32_t, bool);
 

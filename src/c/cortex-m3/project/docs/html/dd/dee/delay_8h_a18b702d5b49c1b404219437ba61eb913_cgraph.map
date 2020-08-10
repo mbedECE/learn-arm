@@ -1,0 +1,7 @@
+<map id="delays_init" name="delays_init">
+<area shape="rect" id="node1" title="Deley configuratio." alt="" coords="5,85,111,115"/>
+<area shape="rect" id="node2" href="$d3/dcb/systick_8h.html#ae21aa60af271633215766ee6be6b8870" title=" " alt="" coords="170,5,326,35"/>
+<area shape="rect" id="node3" href="$d3/dcb/systick_8h.html#a1f7309053baf77d254dbee15d7d3eec5" title=" " alt="" coords="159,59,337,88"/>
+<area shape="rect" id="node4" href="$d3/dcb/systick_8h.html#ad22b34d574ab648dcef84ffaca75de8f" title=" " alt="" coords="159,112,337,141"/>
+<area shape="rect" id="node5" href="$d3/dcb/systick_8h.html#ab70024ec848e492efb0f9a0b266641bd" title=" " alt="" coords="178,165,318,195"/>
+</map>

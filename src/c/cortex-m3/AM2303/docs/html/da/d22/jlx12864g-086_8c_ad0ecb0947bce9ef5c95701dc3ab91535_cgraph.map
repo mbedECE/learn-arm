@@ -1,0 +1,5 @@
+<map id="setDisplayState" name="setDisplayState">
+<area shape="rect" id="node1" title="Sets the display state." alt="" coords="5,5,151,35"/>
+<area shape="rect" id="node2" href="$da/d22/jlx12864g-086_8c.html#a4bcd441113fe3b80f49fcc53a4866ec9" title="Send a command byte to the LCD This function sends a configuration command to the LCD module." alt="" coords="199,5,296,35"/>
+<area shape="rect" id="node3" href="$da/d87/spi_8h.html#a912b1538af2fc99addc1bbecc6040428" title=" " alt="" coords="344,5,445,35"/>
+</map>

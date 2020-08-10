@@ -2,6 +2,7 @@
 #define __GPIO_H
 
 #include <stdint.h>
+#include <stdbool.h>
 
 //GPIO
 #define PORTA 0
@@ -59,6 +60,14 @@
 #define GPIOx_ORD4 4
 #define GPIOx_ORD5 5
 #define GPIOx_ORD6 6
+/**
+	\file gpio.h
+	\brief This header file contains all the function declarations for the GPIO module
+	\author Mark R. Jennings <mbedece@gmail.com>
+	\date Auguts 2, 2020
+	\version 1.1
+*/
+
 #define GPIOx_ORD7 7
 #define GPIOx_ORD8 8
 #define GPIOx_ORD9 9
@@ -117,5 +126,17 @@ uint32_t *GPIOE_LCKR;
 void configurePortPin(uint32_t, uint32_t, uint32_t, uint32_t);
 void pinState(uint32_t, uint32_t, uint32_t);
 void toggle(uint32_t, uint32_t);
+
+
+/**
+	\brief Gets the state of an IO pin
+	This function return a boolean value indicating the current dtate of an IO pin
+	\param port The port being read
+	\param pin The IO pin under observation 
+	\callgraph
+	\callergraph	
+*/
+bool getPinState(uint32_t port, uint32_t pin);
+
 
 #endif

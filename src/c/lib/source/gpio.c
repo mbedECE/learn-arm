@@ -47,6 +47,36 @@ uint32_t *GPIOE_BSRR =(uint32_t*)(PORTE_BASE + 0x10);
 uint32_t *GPIOE_BRR =(uint32_t*)(PORTE_BASE + 0x14);
 uint32_t *GPIOE_LCKR =(uint32_t*)(PORTE_BASE + 0x18);
 
+bool getPinState(uint32_t port, uint32_t pin)
+{
+	uint32_t portState = 0;
+
+	switch(port)
+	{
+		case PORTA:
+			portState = *GPIOA_IDR;
+			break;
+			
+		case PORTB:
+			portState = *GPIOB_IDR;
+			break;
+			
+		case PORTC:
+			portState = *GPIOC_IDR;
+			break;
+			
+		case PORTD:
+			portState = *GPIOD_IDR;
+			break;
+			
+		case PORTE:
+			portState = *GPIOE_IDR;
+			break;
+	}
+	
+	return (portState & (1 << pin));
+}
+
 void configurePortPin(uint32_t port, uint32_t pin, uint32_t config, uint32_t mode)
 {
 	//determine which config register

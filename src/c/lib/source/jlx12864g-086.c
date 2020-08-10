@@ -1,5 +1,12 @@
 #include "../include/jlx12864g-086.h"
 
+/**
+	\dir source
+	\brief The source directory for library files.
+	
+	This directory contains all the sourtce files for thus library
+*/
+
 static uint8_t dummy[] __attribute__((section(".ascii"))) = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
 static uint8_t exclamation[] __attribute__((section(".ascii"))) = {0x00, 0x00, 0x00, 0x4F, 0x00, 0x00, 0x00, 0x00}; 
 static uint8_t percentage[] __attribute__((section(".ascii"))) = {0x00, 0x23, 0x13, 0x08, 0x64, 0x62, 0x00, 0x00}; 
@@ -75,7 +82,8 @@ static uint8_t v[] __attribute__((section(".ascii"))) = {0x00, 0x1C, 0x20, 0x40,
 static uint8_t w[] __attribute__((section(".ascii"))) = {0x00, 0x3C, 0x40, 0x38, 0x40, 0x3C, 0x00, 0x00};
 static uint8_t x[] __attribute__((section(".ascii"))) = {0x00, 0x44, 0x28, 0x10, 0x28, 0x44, 0x00, 0x00};
 static uint8_t y[] __attribute__((section(".ascii"))) = {0x00, 0x0C, 0x50, 0x50, 0x50, 0x3C, 0x00, 0x00};
-static uint8_t z[] __attribute__((section(".ascii"))) = {0x00, 0x44, 0x64, 0x54, 0x4C, 0x44, 0x00, 0x00};
+static uint8_t z[] __attribute__((section(".ascii"))) = {0x00, 0x44, 0x64, 0x54, 0x4C, 0x44, 0x00, 0x00}; 
+
 
 static uint8_t *ascii_table [] __attribute__((section(".ascii"))) = {
 	dummy, dummy, dummy, dummy, dummy, dummy, dummy, dummy, dummy, dummy, dummy, dummy, dummy, dummy, dummy, dummy, 
@@ -86,20 +94,20 @@ static uint8_t *ascii_table [] __attribute__((section(".ascii"))) = {
 	P, Q, R, S, T, U, V, W, X, Y, Z, dummy, dummy, dummy, dummy, dummy, 
 	dummy, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, 
 	p, q, r, s, t, u, v, w, x, y, z, dummy, dummy, dummy, dummy, deg
-};
+}; 
 
-uint32_t SPI = 0;
-uint32_t PORT = 0;
-uint32_t MOSI = 0;
-uint32_t SCK = 0;
-uint32_t NSS = 0;
-uint32_t RS = 0;
-uint32_t RST = 0;
-uint32_t LEDA = 0;
-uint32_t CLK = 0;
+static uint32_t SPI = 0;	
+static uint32_t PORT = 0;
+static uint32_t MOSI = 0;
+static uint32_t SCK = 0;
+static uint32_t NSS = 0;
+static uint32_t RS = 0;
+static uint32_t RST = 0;
+static uint32_t LEDA = 0;
+static uint32_t CLK = 0;
 
-uint32_t ROW = 0;	//page
-uint32_t COL = 0; 	
+static uint32_t ROW = 0;	//page
+static uint32_t COL = 0; 	
 
 static void print(uint8_t ascii, uint8_t col, uint8_t row)
 {

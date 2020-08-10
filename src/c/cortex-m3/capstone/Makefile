@@ -25,6 +25,10 @@ OBJECTS = $(patsubst %.c, %.o, $(wildcard *.c)) $(patsubst %.s, %.o, $(wildcard 
 # Add Standard Peripheral Library to the build configuration
 DEFS    = -DUSE_STDPERIPH_DRIVER
 
+DIR=/home/ubuntu/Desktop/repositories/stlink/build/Release/bin/
+ADDR=0x8000000
+
+
 # Build targets
 .PHONY: all
 all: $(PROJECT).elf
@@ -42,3 +46,8 @@ $(PROJECT).elf: $(OBJECTS)
 .PHONY: clean
 clean:
 	rm -rf *.o *.bin *.elf *.map
+	
+write:
+	st-info --probe
+	$(DIR)./st-flash write final.bin $(ADDR)
+	

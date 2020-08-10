@@ -1,0 +1,5 @@
+<map id="initialize" name="initialize">
+<area shape="rect" id="node1" title="System initialization." alt="" coords="301,5,388,35"/>
+<area shape="rect" id="node2" href="$df/d0a/stm32__startup_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="191,5,253,35"/>
+<area shape="rect" id="node3" href="$df/d0a/stm32__startup_8c.html#ae7ee340978f5c25f52f0cad1457c6616" title=" " alt="" coords="5,5,143,35"/>
+</map>

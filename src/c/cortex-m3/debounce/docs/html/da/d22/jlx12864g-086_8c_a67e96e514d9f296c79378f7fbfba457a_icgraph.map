@@ -1,0 +1,7 @@
+<map id="clearScreen" name="clearScreen">
+<area shape="rect" id="node1" title="Clears the LCD screen." alt="" coords="555,5,672,35"/>
+<area shape="rect" id="node2" href="$da/d22/jlx12864g-086_8c.html#a9ffc724093e31df58e5e5bea364c72f7" title="LCD initialization and setup." alt="" coords="436,5,507,35"/>
+<area shape="rect" id="node3" href="$d4/dbf/main_8h.html#a9efe22aaead3a5e936b5df459de02eba" title="System initialization." alt="" coords="301,5,388,35"/>
+<area shape="rect" id="node4" href="$df/d0a/stm32__startup_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="191,5,253,35"/>
+<area shape="rect" id="node5" href="$df/d0a/stm32__startup_8c.html#ae7ee340978f5c25f52f0cad1457c6616" title=" " alt="" coords="5,5,143,35"/>
+</map>

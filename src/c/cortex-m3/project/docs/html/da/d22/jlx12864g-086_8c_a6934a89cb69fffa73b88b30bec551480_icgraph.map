@@ -1,0 +1,4 @@
+<map id="sendData" name="sendData">
+<area shape="rect" id="node1" title="Sends a byte of data to LCD This function trabsfers a byte of data to the LCD via the serial interfac..." alt="" coords="171,5,269,35"/>
+<area shape="rect" id="node2" href="$da/d22/jlx12864g-086_8c.html#a67e96e514d9f296c79378f7fbfba457a" title="Clears the LCD screen." alt="" coords="5,5,123,35"/>
+</map>

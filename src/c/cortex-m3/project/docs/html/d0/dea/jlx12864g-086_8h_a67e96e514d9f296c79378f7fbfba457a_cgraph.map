@@ -1,0 +1,6 @@
+<map id="clearScreen" name="clearScreen">
+<area shape="rect" id="node1" title="Clears the LCD screen." alt="" coords="5,32,123,61"/>
+<area shape="rect" id="node2" href="$da/d22/jlx12864g-086_8c.html#a6934a89cb69fffa73b88b30bec551480" title="Sends a byte of data to LCD This function trabsfers a byte of data to the LCD via the serial interfac..." alt="" coords="171,5,269,35"/>
+<area shape="rect" id="node4" href="$da/d22/jlx12864g-086_8c.html#a4be1c34ab03ed296adfc1f8112bb5a96" title="Set the cursor position." alt="" coords="171,59,269,88"/>
+<area shape="rect" id="node3" href="$da/d87/spi_8h.html#a912b1538af2fc99addc1bbecc6040428" title=" " alt="" coords="317,5,419,35"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="sendCMD" name="sendCMD">
+<area shape="rect" id="node1" title="Send a command byte to the LCD This function sends a configuration command to the LCD module." alt="" coords="5,5,103,35"/>
+<area shape="rect" id="node2" href="$da/d87/spi_8h.html#a912b1538af2fc99addc1bbecc6040428" title=" " alt="" coords="151,5,252,35"/>
+</map>

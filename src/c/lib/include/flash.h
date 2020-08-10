@@ -1,3 +1,11 @@
+/**
+	\file flash.h
+	\brief This header file contains all the function declarations for the LCD module
+	\author Mark R. Jennings <mbedece@gmail.com>
+	\date Auguts 2, 2020
+	\version 1.0
+*/
+
 #ifndef _FLASH_H
 #define _FLASH_H
 

@@ -1,3 +1,4 @@
+
 #ifndef _MAIN_H
 #define _MAIN_H
 
@@ -9,12 +10,61 @@
 #include "spi.h"
 #include "gpio.h"
 #include "delay.h"
+#include "exti.h"
+#include "nvic.h"
 
+/**
+	\file main.h
+	\brief This header file contains all the function declarations for main
+	\author Mark R. Jennings <mbedece@gmail.com>
+	\date Auguts 2, 2020
+	\version 1.0
+*/
+
+
+/**
+	System clock setting. 
+	This macro is the default setting for the MCU system clock. This is the max value allowed for the STM32f103c8t6.
+*/
 #define SYS_CLK 72	//MHz
 
+/**
+	System initialization. 
+	This function perform **all** initialization tasks such as the configuration of the system clock, enabling peripheral
+	clocks, enabling peripherals, etc.
+
+	\note The system clcok at this time can only be configured for two speeds
+	<ul>
+		<li> 8 MHz </li>
+		<li> 72 MHz </li>
+	</ul>
+	\attention To configure the system clock for 8 MHz simply change the value of SYS_CLK to 8 and do not call configureSystemClock
+	\callgraph
+	\callergraph
+*/
 void initialize(void);
+
+/** 
+	System clock confoguration. 
+	This function configures the system clock to 72 MHz. APB2 clock = 72 MHz and APB1 clcok = 36 MHz. HSE clock is 8 MHz and prescaler = 9
+	\callergraph
+*/
 void configureSystemClock(void);
+
+/**
+	HC-SRO4 configuration. 
+	This function initializes the ultrasonic sensor and performs the initial configuration of any GPIO and other supporting periphersals
+	@see initialize()
+	\callergraph
+*/
 void HCSR04(void);
+
+/**
+	HC-SRO4 trigger.
+	This function initiates a pulse train of at least 10us to trigger the ultrasonic sensor whenever a distance measurement is required
+	@see initialize()
+	\callergraph
+*/
 void trigger(void);
 
 #endif
